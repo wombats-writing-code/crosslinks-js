@@ -1,12 +1,17 @@
 
+
+![Crosslinks](crosslinks.png)
+
 Crosslinks
 ===
 
-Crosslinks [crosslinks.mit.edu](http://crosslinks.mit.edu) is a web application that contains a compendium of topics, resources tagged with topics, and links across topics.
+Crosslinks ([crosslinks.mit.edu](http://crosslinks.mit.edu)) is a web application that contains a compendium of topics, resources tagged with topics, and links across topics.
 
 This repository is the front-end: it contains the code for what you see on the site and lets you host your own version of Crosslinks.
 
-Crosslinks is open-source: you are free to use, modify and reuse any part of it. We ask only that you attribute and cite MIT Crosslinks (Miller, H.R, Willcox, K.E., Huang, L. "Crosslinks: Improving course connectivity using online open educational resources," in The Bridge, National Academy of Engineering, to appear 2016.)
+Crosslinks is open-source: you are free to use, modify and reuse any part of it. We ask only that you attribute and cite MIT Crosslinks:
+
+**Miller, H.R, Willcox, K.E., Huang, L. "Crosslinks: Improving course connectivity using online open educational resources," in The Bridge, National Academy of Engineering, to appear 2016.**
 
 Crosslinks is a project by [Karen E. Willcox](http://kiwi.mit.edu), MIT Professor of Aeronautics & Astronautics, and Haynes Miller, MIT Professor of Mathematics. The development of Crosslinks was funded by MIT ODL Strategic Education Initiatives, who also provided the backend service.
 
@@ -42,6 +47,10 @@ If any of the above was confusing, here is some required reading:
 
 ## Code organization
 
+The Crosslinks application is front-end only, which means you'll need to set up your own server-side solution for managing permissions.
+
+For example, at MIT, Crosslinks is world-readable - anyone in the world can read and access content. But, only MIT-authenticated users can edit. We do this by setting up an http version and an https version. The front-end shows the editing pages only when there is an MIT username present on the client. We then really secure this by having our API accept only requests with valid MIT kerberoses.
+
 All app stuff  is found in `app/`.
 
 From here on, we assume you're in the `app/` directory. Most likely you're interested in the actual Javascript logic, found in `modules/`. The entry file to the module loader is `index.js` and contains all routes (aka "pages") and their loading logic.
@@ -61,7 +70,7 @@ The core unit of Crosslinks is a `Topic`. The factory function and prototype def
 * an array of `apply`  (links to resources that apply the current Topic)
 * an array of `advance`  (Topics that follow on after the current one)
 
-## How to start modifying Crosslinks for your own
+## How to deploy your own Crosslinks
 
 The section on Data Modeling above is required reading. This list is a bit lengthy, but fortunately, most of these modifications have to do with your server endpoints. Files you'll need to modify:
 
@@ -71,11 +80,6 @@ The section on Data Modeling above is required reading. This list is a bit lengt
 * app/modules/handcar/[everything] -- Provides functions to call against handcar, our server-side logic. You'll need to rewrite these functions to fit your API endpoints.
 * app/modules/common/models/[everything] -- Provides factories and prototypes for models.
 * app/modules/interceptors/[everything] -- This is some complicated logic to handle adapting requests and responses -- we need this because of the split authentication scheme we use at MIT Crosslinks. You might not.
-
-## Deploying the Crosslinks app
-The Crosslinks application is front-end only, which means you'll need to set up your own server-side solution for managing permissions.
-
-For example, at MIT, Crosslinks is world-readable - anyone in the world can read and access content. But, only MIT-authenticated users can edit. We do this by setting up an http version and an https version. The front-end shows the editing pages only when there is an MIT username present on the client. We then really secure this by having our API accept only requests with valid MIT kerberoses.
 
 
 ## Optional Tutorial 1: Display hello world dynamically on the front page!
@@ -92,9 +96,6 @@ We assume you're already running `gulp watch`:
 
 Note: simply putting in the block with the 'hello world' text defeats the point of this exercise. We want to learn about the controller and idea of injecting in data.
 Another note: remember to hit refresh again after the page rebuilds-reloads.
-
-Your goal is to produce something like this:
-![The result of tutorial 1](/readme_files/tutorial_1_result.png)
 
 ## Links
 * [MIT Crosslinks website] (http://crosslinks.mit.edu)
