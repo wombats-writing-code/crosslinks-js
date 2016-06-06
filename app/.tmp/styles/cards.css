@@ -1,0 +1,243 @@
+/* line 6, ../../styles/typography.scss */
+html {
+  font-size: 87.5%;
+}
+
+/* line 10, ../../styles/typography.scss */
+body {
+  font-size: 1rem;
+  font-family: "ff-dagny-web-pro";
+  text-rendering: optimizeLegibility;
+}
+
+/* line 16, ../../styles/typography.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "chaparral-pro";
+  font-weight: 600;
+}
+
+/* line 27, ../../styles/typography.scss */
+p, a, label, .normal, .p {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* line 34, ../../styles/typography.scss */
+.small {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-top: 1.8462em;
+  margin-bottom: 0.0000em;
+}
+
+/* line 40, ../../styles/typography.scss */
+.large {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 1.2000em;
+  margin-bottom: 1.2000em;
+}
+
+/* line 47, ../../styles/typography.scss */
+h6, .h6 {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 0;
+  margin-bottom: 1.2000em;
+}
+
+/* line 54, ../../styles/typography.scss */
+h5, .h5 {
+  font-size: 1.5625rem;
+  /* 25px */
+  line-height: 1.9200em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.9600em;
+}
+
+/* line 61, ../../styles/typography.scss */
+h4, .h4 {
+  font-size: 1.9375rem;
+  /* 31px */
+  line-height: 1.5484em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.7742em;
+}
+
+/* line 68, ../../styles/typography.scss */
+h3, .h3 {
+  font-size: 2.4375rem;
+  /* 39px */
+  line-height: 1.2308em;
+  /* 48px */
+  margin-top: 0.6154em;
+  margin-bottom: 0.6154em;
+}
+
+/* line 75, ../../styles/typography.scss */
+h2, .h2 {
+  font-size: 3.0625rem;
+  /* 49px */
+  line-height: 1.4694em;
+  /* 72px */
+  margin-top: 0.4898em;
+  margin-bottom: 0.4898em;
+}
+
+/* line 82, ../../styles/typography.scss */
+h1 {
+  font-size: 3.8125rem;
+  /* 61px */
+  line-height: 1.1803em;
+  /* 72px */
+  margin-top: 0.3934em;
+  margin-bottom: 0.3934em;
+}
+
+/* line 89, ../../styles/typography.scss */
+ul, ol {
+  padding-left: 0;
+  margin: 0;
+}
+
+/* line 95, ../../styles/typography.scss */
+a, a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* line 100, ../../styles/typography.scss */
+a:hover {
+  color: inherit;
+}
+
+/* line 104, ../../styles/typography.scss */
+.text-link {
+  cursor: pointer;
+  color: #a31f34;
+  text-decoration: underline;
+}
+
+/* line 110, ../../styles/typography.scss */
+.text-link:hover {
+  color: #ce2742;
+  text-decoration: underline;
+}
+
+/* line 115, ../../styles/typography.scss */
+.text-link:visited {
+  color: #781726;
+  text-decoration: underline;
+}
+
+/* line 120, ../../styles/typography.scss */
+.muted {
+  color: #62717d;
+}
+
+/* line 129, ../../styles/typography.scss */
+.noneditable {
+  color: #62717d;
+  opacity: .5;
+}
+
+/* line 5, ../../styles/cards.scss */
+.has-delete-button {
+  align-items: baseline;
+}
+
+/* line 10, ../../styles/cards.scss */
+.has-delete-button .button--delete {
+  margin-right: 1em;
+}
+
+/* line 15, ../../styles/cards.scss */
+.card {
+  padding: 0.75rem 0.75em;
+  border: 1px solid #f1f3f5;
+  margin-bottom: 1.5rem;
+  background-color: #f9f7f2;
+}
+
+/* line 22, ../../styles/cards.scss */
+.card__title {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* line 27, ../../styles/cards.scss */
+.card.card--empty {
+  border-style: dashed;
+}
+
+/* line 33, ../../styles/cards.scss */
+.card--alternate {
+  border-top: 1px solid #a8b4be;
+  border-right: 1px solid #a8b4be;
+  border-left: 1px solid #a8b4be;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* line 41, ../../styles/cards.scss */
+.card--alternate__title, .card--alternate__subtitle {
+  padding-left: .9375em;
+  padding-right: .9375em;
+}
+
+/* line 49, ../../styles/cards.scss */
+.card--alternate__subtitle {
+  margin-bottom: 0;
+}
+
+/* line 53, ../../styles/cards.scss */
+.no-bottom-margin {
+  margin-bottom: 0;
+}
+
+/* line 57, ../../styles/cards.scss */
+.bordered {
+  border: 1px solid #f1f3f5;
+}
+
+/* line 61, ../../styles/cards.scss */
+.bordered--bottom {
+  border-bottom: 1px solid #f1f3f5;
+}
+
+/* line 65, ../../styles/cards.scss */
+.list__item--typographic {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+/* line 71, ../../styles/cards.scss */
+.list__item--typographic.has-delete-button {
+  padding: 0;
+}
+
+/* line 75, ../../styles/cards.scss */
+.list__item--typographic:first-child {
+  padding-top: 0;
+}
+
+/* line 79, ../../styles/cards.scss */
+.list__item--typographic:last-child {
+  border-bottom: 0;
+}
+
+/* line 83, ../../styles/cards.scss */
+.list__item--add-new {
+  border-bottom: 1px dashed #f1f3f5;
+}

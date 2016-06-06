@@ -1,0 +1,21 @@
+<h4 class="bold heading--bordered"> All Edits </h4>
+
+<login-prompt user="currentUser">
+	<span>To see who has edited, you need to first login (must have MIT Kerberos).</span>
+</login-prompt>
+
+<div ng-if="currentUser.isLoggedIn">
+	<div class="row">
+		<spinner ng-show="!logEntries"></spinner>
+	</div>
+
+	<div class="row" ng-show="logEntries">
+		<input class="input input--search margin--bottom" type="search" placeholder="Search by user or topic" ng-model="query" ng-change="searchLogEntries(logEntries, query)">
+	</div>
+
+	<ol class="row ">
+		<li ng-repeat="entry in searchResults | orderBy:'timestamp':true ">
+			<log-entry entry="entry"></log-entry>
+		</li>
+	</ol>
+</div>

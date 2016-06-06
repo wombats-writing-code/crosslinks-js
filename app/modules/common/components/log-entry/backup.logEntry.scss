@@ -1,0 +1,40 @@
+@import '../../../common/styles/variables.scss';
+
+.change-property {
+	flex-wrap: wrap;
+}
+
+.change-property__version, .change-property__list {
+	flex: 1;
+}
+
+.change-property__title, .change-property__list {
+	margin-right: 2em;
+	font-size: 0.8125rem;
+	line-height: 1.8462em; /* 24px */
+	font-style: italic;
+}
+
+.change-property__title {
+	color: $muted;
+}
+
+.change-property__list {
+	min-width: 256px;
+	padding-left: 2em;
+	padding-top: .82em;
+	padding-bottom: .82em;
+	background: $background-secondary;
+	margin-bottom: 1.5em;
+}
+
+.change-property__list .change-property__version {
+	font-size: 0.8125rem;
+	line-height: 1.8462em; /* 24px */
+	font-weight: 600;
+	list-style: none;
+	text-align: left;
+	font-style: normal;
+}
+
+

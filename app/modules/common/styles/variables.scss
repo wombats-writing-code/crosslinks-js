@@ -1,0 +1,37 @@
+// breakpoints
+$breakpoint--small: 320px;
+$breakpoint--medium: 1085px;
+
+// colors
+$white: #fff;
+$black: #000;
+
+$bodytext-color: #3f474e;
+$muted: #62717D;
+$muted-tint-1: #85939f;
+
+$background-primary: $white;
+$background-secondary: #F2F0E6;
+$background-secondary-tint-1: #F9F7EF;
+$background-secondary-tint-2: #FcFaF5;
+$background-secondary-tint-3: #FdFbF6;
+$background-secondary-tint-4: #FeFeF9;
+
+$mit-red: #A31F34;
+$mit-red--secondary: #83081B;
+$mit-red--secondary: #C03C50;
+$mit-red--complementary: #7BCB5D;
+$mit-purple: #811864;
+$mit-gray: #8A8B8C;
+$mit-light-gray: #C2C0BF;
+
+// typography
+$body-font: 'ff-dagny-web-pro';
+$display-font: 'ff-dagny-web-pro';
+$body-font: sans-serif;
+$display-font: sans-serif;
+
+$base-font-size: 1rem;		// 14px
+$base-leading: 1.5rem;		// 21px  
+
+$side-bar-width: 220px;

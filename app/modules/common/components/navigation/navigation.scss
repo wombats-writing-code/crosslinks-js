@@ -1,0 +1,77 @@
+@import '../../../common/styles/variables.scss';
+
+.nav-links {
+	list-style: none;
+	padding-left: 1em;
+	padding-top: 1.5em;
+}
+
+.nav-links__item {
+	line-height: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.nav-link.js-selected {
+	font-weight: 600;
+}
+
+.navigation {
+	// if smaller than breakpoint--medium, convert this to nav-bar
+	@media all and (max-width: $breakpoint--medium) {
+//		display: none;		
+		z-index: 1;
+		.nav__crosslinks-logo {
+			display: none;
+		}
+
+		.nav__wrapper.js-visible {
+			display: block;
+		}
+
+		.nav__wrapper.js-invisible {
+			display: none;
+		}
+
+		.nav__wrapper .search-topic-wrapper {
+			padding-left: 1em;
+		}
+		
+		position: absolute;
+		top: 0em;
+		left: 0;
+		width: 100%;
+		background: rgba($background-secondary, 1);
+		padding-left: $base-leading/2 0em;
+		padding-right: $base-leading/2 0em;
+	}
+
+	@media all and (min-width: $breakpoint--medium) {
+		.nav__menu-button {
+			display: none;
+		}
+
+		flex-shrink: 0;
+		width: $side-bar-width;
+		padding: $base-leading 1em;
+		background-color: rgba($background-secondary-tint-3, 0.5);
+	}
+}
+
+.side-bar__nav {
+	margin-bottom: 1.5em;
+}
+
+.nav__crosslinks-logo {
+	margin-bottom: $base-leading*2;
+	width: 133px;
+	height: 102px;
+}
+
+// mobile-form
+.button.nav__menu-button {
+	margin: 0;
+	background: $mit-red;
+	color: $background-primary;
+	border-radius: 0;
+}
+

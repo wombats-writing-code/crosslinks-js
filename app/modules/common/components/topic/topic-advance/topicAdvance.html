@@ -1,0 +1,20 @@
+
+<div ng-if="advance.length == 0" class="no-five-section-material">
+	<p class="small italic">No advance topics (yet). </p>
+</div>
+<ul class="five-section-topic-list">
+	<li class="five-section-topic-list__topic" ng-repeat="topic in advance">
+		<a class="five-section-topic-list__topic__link" ui-sref="topic-read({topicIdentifier: topic.getIdentifier()})" ng-bind="topic.displayName"></a>
+		&nbsp;
+		<toggle-switch class="toggle-switch" toggle-model="showResources"></toggle-switch>
+
+		<ul class="" ng-show="showResources">
+			<li class="link-with-favicon" ng-repeat="resource in topic.learnResources">
+				<img class="link-with-favicon__favicon" ng-src="/images/{{resource.iconType}}.png" ng-alt="{{resource.iconType}}" />
+				<a class="link-with-favicon__link" target="_blank" ng-href="{{resource.url}}" ng-bind="resource.displayName"></a>
+			</li>
+			<p class="small" ng-show="topic.learnResources && topic.learnResources.length == 0">No Learn resources yet</p>
+			<p class="small animation--pulse" ng-show="!topic.learnResources">Loading...</p>
+		</ul>
+	</li>
+</ul>

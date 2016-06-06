@@ -1,0 +1,82 @@
+	<p>
+		<a class="topic-name" ui-sref="topic-read({topicIdentifier: entry.alias})"  ng-bind="entry.displayName"></a>
+
+		<span class="" ng-if="entry.action =='delete'">deleted </span>
+		<span class="" ng-if="entry.action =='create' || entry.action == 'add'">created </span>
+		<span class="">by</span>
+		<span class="bold" ng-bind="entry.agentId"></span>
+		<span class="">on</span>
+		<span class="bold" ng-bind="entry.timestamp | date: 'MMM d, y' "></span>
+		<span class="">at</span>
+		<span class="bold" ng-bind="entry.timestamp | date: 'h:mma' "></span>
+	</p>
+
+	<div ng-if="entry.property == 'displayName' || entry.property == 'description'">
+		<section class="current">
+			<p class="property-title">Current <span class="property-name" ng-bind="entry.property"></span> </p>	
+			<p class="property-value" mathjax="entry.current" ng-bind="entry.current"></p>
+		</section>
+		<section class="previous">
+			<p class="property-title">Previous <span class="property-name" ng-bind="entry.property"></span></p>	
+			<p class="property-value" mathjax="entry.previous" ng-bind="entry.previous"></p>
+		</section>
+	</div>
+
+	<div ng-if="entry.property == 'prepare' || entry.property == 'relate' || entry.property == 'advance' ">
+		<section class="current">
+			<p class="property-title">Current <span class="property-name" ng-bind="entry.property"></span></p>	
+			<ol>
+				<li ng-repeat="item in ::entry.current">
+					<p class="property-value" ng-bind="::item.displayName"></p>
+				</li>
+			</ol>	
+		</section>
+		<section class="previous">
+			<p class="property-title">Previous <span class="property-name" ng-bind="entry.property"></span></p>	
+			<ol>	
+				<li ng-repeat="item in ::entry.previous">
+					<p class="property-value" ng-bind="::item.displayName"></p>
+				</li>
+			</ol>	
+		</section>
+	</div>
+
+	<div ng-if="entry.property == 'learn' || entry.property == 'apply' || entry.property == 'reference'">
+		<section class="current">
+			<p class="property-title">Current <span class="property-name" ng-bind="entry.property"></span></p>	
+			<ol>
+				<li ng-repeat="item in ::entry.current">
+					<p class="property-value" ng-bind="::item.displayName"></p>
+					<p class="property-value" ng-bind="::item.url"></p>
+				</li>
+			</ol>	
+		</section>
+		<section class="previous">
+			<p class="property-title">Previous <span class="property-name" ng-bind="entry.property"></span></p>	
+			<ol>	
+				<li ng-repeat="item in ::entry.previous">
+					<p class="property-value" ng-bind="::item.displayName"></p>
+					<p class="property-value" ng-bind="::item.url"></p>
+				</li>
+			</ol>	
+		</section>
+	</div>
+
+	<div ng-if="entry.property == 'subject'">
+		<section class="current">
+			<p class="property-title">Current <span class="property-name" ng-bind="entry.property"></span></p>	
+			<ol>
+				<li ng-repeat="item in ::entry.current">
+					<p class="property-value" ng-bind="::item.number"></p>
+				</li>
+			</ol>	
+		</section>
+		<section class="previous">
+			<p class="property-title">Previous <span class="property-name" ng-bind="entry.property"></span></p>	
+			<ol>	
+				<li ng-repeat="item in ::entry.previous">
+					<p class="property-value" ng-bind="::item.number"></p>
+				</li>
+			</ol>	
+		</section>
+	</div>

@@ -1,0 +1,12 @@
+<topic-tab></topic-tab>
+
+<login-prompt user="currentUser">
+	<span>To edit this topic, you need to first login (must have MIT Kerberos).</span>
+</login-prompt>
+
+<div ng-show="currentUser.isLoggedIn">
+	<div class="row">	
+		<loading-text ng-show="isLoading"></loading-text>
+	</div>
+	<topic-form-edit class="animation--fade" ng-show="!isLoading" form-topic="currentTopic" save-fn="updateTopic(topic)" delete-fn="deleteTopic(topic)" topics="topics" subjects="subjects"></topic-form-edit>
+</div>

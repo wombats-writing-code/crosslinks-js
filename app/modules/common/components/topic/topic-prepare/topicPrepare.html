@@ -1,0 +1,9 @@
+
+<div ng-if="prepare.length == 0" class="no-five-section-material">
+	<p class="small italic">No prerequisite topics (yet). </p>
+</div>
+<ul class="five-section-topic-list" id="topic-vis-height-reference">
+	<li class="five-section-topic-list__topic" ng-repeat="topic in prepare track by topic.id">
+		<a class="five-section-topic-list__topic__link" ui-sref="topic-read({topicIdentifier: topic.getIdentifier()})" ng-bind="topic.displayName"></a>
+	</li>
+</ul>

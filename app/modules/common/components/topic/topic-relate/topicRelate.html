@@ -1,0 +1,10 @@
+
+<div ng-if="relate.length == 0" class="no-five-section-material">
+	<p class="small italic">No related topics (yet). </p>
+</div>
+<ul class="five-section-topic-list">
+	<li class="five-section-topic-list__topic" ng-repeat="topic in relate">
+		<a class="five-section-topic-list__topic__link" ui-sref="topic-read({topicIdentifier: topic.getIdentifier()})" ng-bind="topic.displayName"></a>
+		&nbsp;
+	</li>
+</ul>

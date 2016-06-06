@@ -1,0 +1,91 @@
+@import '../../../common/styles/variables.scss';
+
+$breakpoint--viz: 800px;
+
+.gpu {
+	-webkit-transform: translateZ(0);
+	position: relative;
+}
+
+#graph-svg {
+	width: 100%;
+}
+
+.min-screen-message {
+	display: none;
+	margin-bottom: 0;
+
+	@media all and (max-width: $breakpoint--viz) {
+		display: block;
+		color: $mit-red;
+		font-style: italic;	
+		text-align: center;
+		border: 1px solid $mit-red;
+		padding-top: 1.5em;
+	}
+
+}
+
+.loading-bar {
+	@media all and (max-width: $breakpoint--viz) {
+		display: none;
+	}
+	@media all and (min-width: $breakpoint--viz) {
+		height: 50px;
+		width: 100%;
+		position: absolute;
+		top: 20%;
+		left: 1em;
+		background: rgba($mit-red, 0.75);
+		animation: load 20s ease-in-out;
+	}
+}
+
+.loading-text {
+	padding-left: 1em;
+	padding-top: 1em;
+	color: $background-primary;
+	@media all and (max-width: $breakpoint--viz) {
+		display: none;
+	}
+}
+
+@-webkit-keyframes load {
+	0% { width: 0; }	
+	100% { width: 100%; }	
+}
+
+.visualization {
+	@media all and (max-width: $breakpoint--viz) {
+		display: none;
+	}
+
+	@media all and (min-width: $breakpoint--viz) {
+		width: 100%;
+	}
+}
+
+.loading-text--on-svg {
+	text-align: center;
+	position: absolute;
+	top: 40%;
+	left: 46%;
+}
+
+.loading-svg-text {
+	text-anchor: middle;
+}
+
+.topic-label {
+	font-family: $body-font;
+	font-size: .8em;
+	color: #565656;
+	fill: #565656;
+	pointer-events: none;
+	alignment-baseline: middle;
+}
+
+.node {
+	cursor: pointer;
+}
+

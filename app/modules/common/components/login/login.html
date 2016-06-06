@@ -1,0 +1,4 @@
+
+<p class="bold">Account</p>
+<p ng-if="!user.isLoggedIn"><a class="nav-link" ng-href="{{ goToHttps() }}"> Login (MIT Kerberos)</a></p>
+<p ng-if="user.isLoggedIn" class="muted"> Logged in as <span class="bold" ng-bind="user.kerberosId"></p>

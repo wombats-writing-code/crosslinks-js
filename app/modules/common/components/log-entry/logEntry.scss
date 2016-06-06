@@ -1,0 +1,36 @@
+@import '../../../common/styles/variables.scss';
+
+a.disabled {
+	color: $bodytext-color;
+	pointer-events: none;		
+}
+
+.current, .previous {
+	overflow-wrap: break-word;
+	font-size: 0.8125rem;
+	padding-left: 1em;
+	padding-top: .82em;
+	padding-bottom: .82em;
+	background: $background-secondary;
+	margin-bottom: 1.5em;
+}
+
+.property-title {
+	font-size: 0.8125rem;
+	color: #5a5b5c;
+}
+
+.property-name {
+	text-transform: uppercase;
+}
+
+.property-value {
+	font-size: 0.8125rem;
+	line-height: 1.8462em; /* 24px */
+	list-style: none;
+	text-align: left;
+	font-style: italic;
+	margin-bottom: 0;
+}
+
+

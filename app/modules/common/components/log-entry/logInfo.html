@@ -1,0 +1,19 @@
+<div class="log-entry">
+	<p>
+		<a class="topic-name" ui-sref="topic-read({topicIdentifier: entry.alias})" ng-bind="entry.displayName"></a>
+
+		<span class="" ng-if="entry.action =='delete'">deleted </span>
+		<span class="" ng-if="entry.action =='create' || entry.action == 'add'">created </span>
+<!--
+		<span class="">by</span>
+		<span class="bold" ng-bind="entry.agentId"></span>
+-->
+		<span class="">on</span>
+		<span class="bold" ng-bind="entry.timestamp | date: 'MMM d' "></span>
+<!--
+		<span class="">at</span>
+		<span class="bold" ng-bind="entry.timestamp | date: 'h:mma' "></span>
+-->
+	</p>
+</div>
+

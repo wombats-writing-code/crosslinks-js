@@ -1,0 +1,439 @@
+/* line 13, ../../styles/typography.scss */
+html {
+  font-size: 87.5%;
+}
+
+/* line 17, ../../styles/typography.scss */
+body {
+  color: #3f474e;
+  font-size: 1rem;
+  font-family: "ff-dagny-web-pro";
+  text-rendering: optimizeLegibility;
+}
+
+/* line 24, ../../styles/typography.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400;
+  font-family: "ff-dagny-web-pro";
+}
+
+/* line 31, ../../styles/typography.scss */
+p, label, .normal, .p {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* line 38, ../../styles/typography.scss */
+p.heading--bordered {
+  line-height: 1.43em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 43, ../../styles/typography.scss */
+.small {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-bottom: 1.8462em;
+}
+
+/* line 50, ../../styles/typography.scss */
+.large {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 1.2000em;
+  margin-bottom: 1.2000em;
+}
+
+/* line 57, ../../styles/typography.scss */
+h6, .h6 {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 0;
+  margin-bottom: 1.2000em;
+}
+
+/* line 65, ../../styles/typography.scss */
+h6.heading--bordered {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 71, ../../styles/typography.scss */
+h6.heading--bordered.small {
+  line-height: 2.33em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 77, ../../styles/typography.scss */
+h5, .h5 {
+  font-size: 1.5625rem;
+  /* 25px */
+  line-height: 1.9200em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.9600em;
+}
+
+/* line 84, ../../styles/typography.scss */
+h4, .h4 {
+  font-size: 1.9375rem;
+  /* 31px */
+  line-height: 1.5484em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.7742em;
+}
+
+/* line 91, ../../styles/typography.scss */
+h4.heading--bordered {
+  line-height: 1.4784em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 96, ../../styles/typography.scss */
+h3, .h3 {
+  font-size: 2.4375rem;
+  /* 39px */
+  line-height: 1.2308em;
+  /* 48px */
+  margin-top: 0.6154em;
+  margin-bottom: 0.6154em;
+}
+
+/* line 103, ../../styles/typography.scss */
+h2, .h2 {
+  font-size: 3.0625rem;
+  /* 49px */
+  line-height: 1.4694em;
+  /* 72px */
+  margin-top: 0.4898em;
+  margin-bottom: 0.4898em;
+}
+
+/* line 110, ../../styles/typography.scss */
+h1 {
+  font-size: 3.8125rem;
+  /* 61px */
+  line-height: 1.1803em;
+  /* 72px */
+  margin-top: 0.3934em;
+  margin-bottom: 0.3934em;
+}
+
+/* line 118, ../../styles/typography.scss */
+ul, ol {
+  margin: 0;
+}
+
+/* line 131, ../../styles/typography.scss */
+a, .link {
+  cursor: pointer;
+  color: #a31f34;
+  text-decoration: none;
+  line-height: 1.3em;
+}
+
+/* line 139, ../../styles/typography.scss */
+a.small {
+  line-height: 1.2em;
+}
+
+/* line 143, ../../styles/typography.scss */
+a:hover, a:visited:hover {
+  color: #c03c50;
+  text-decoration: underline;
+}
+
+/* line 148, ../../styles/typography.scss */
+a:visited {
+  color: #811829;
+}
+
+/* line 152, ../../styles/typography.scss */
+a:focus {
+  outline: none;
+}
+
+/* line 156, ../../styles/typography.scss */
+i, .italic {
+  font-style: italic;
+}
+
+/* line 160, ../../styles/typography.scss */
+.muted {
+  color: #62717d;
+}
+
+/* line 164, ../../styles/typography.scss */
+.muted-tint-1 {
+  color: #85939f;
+}
+
+/* line 168, ../../styles/typography.scss */
+.emphasis {
+  color: #a31f34;
+  color: #8a8b8c;
+  color: #c03c50;
+}
+
+/* line 174, ../../styles/typography.scss */
+.warning {
+  color: #c03c50;
+}
+
+/* line 179, ../../styles/typography.scss */
+.bold, .warning {
+  font-weight: 600;
+}
+
+/* line 184, ../../styles/typography.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 188, ../../styles/typography.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 192, ../../styles/typography.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 197, ../../styles/typography.scss */
+.five-section-heading {
+  margin-bottom: 1.100em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 203, ../../styles/typography.scss */
+.five-section-heading__heading {
+  margin-bottom: 0;
+}
+
+/* line 4, ../../styles/layout.scss */
+.pre {
+  white-space: pre-wrap;
+  line-height: 1.95em;
+  margin-bottom: .6em;
+}
+
+/* line 10, ../../styles/layout.scss */
+article {
+  overflow: visible;
+}
+
+/* line 14, ../../styles/layout.scss */
+article .row .row {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 19, ../../styles/layout.scss */
+.change-block {
+  width: 50%;
+  font-style: italic;
+  padding-left: 2em;
+  padding-bottom: .75em;
+  padding-top: .75em;
+}
+
+/* line 27, ../../styles/layout.scss */
+.change-block--new {
+  background: #fcfaf5;
+}
+
+/* line 31, ../../styles/layout.scss */
+.change-block--old {
+  background: rgba(194, 192, 191, 0.75);
+  opacity: .9;
+}
+
+/* line 36, ../../styles/layout.scss */
+.change-block__version {
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* line 41, ../../styles/layout.scss */
+.change-block__title {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-bottom: 0;
+}
+
+/* line 47, ../../styles/layout.scss */
+.change-block__element:last-child {
+  margin-bottom: 0;
+}
+
+/* line 51, ../../styles/layout.scss */
+.flex-container {
+  display: flex;
+}
+
+/* line 55, ../../styles/layout.scss */
+.flex-center {
+  justify-content: space-around;
+}
+
+/* line 59, ../../styles/layout.scss */
+.flex-justify {
+  justify-content: space-between;
+}
+
+/* line 63, ../../styles/layout.scss */
+.flex-container--vertical {
+  flex-direction: column;
+}
+
+/* line 67, ../../styles/layout.scss */
+.columns.no-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* line 72, ../../styles/layout.scss */
+.columns.no-padding--left {
+  padding-left: 0;
+}
+
+/* line 76, ../../styles/layout.scss */
+.no-margin--bottom {
+  margin-bottom: 0 !important;
+}
+
+/* line 80, ../../styles/layout.scss */
+.margin--bottom {
+  margin-bottom: 1.5em;
+}
+
+/* line 84, ../../styles/layout.scss */
+.border--top {
+  border-top: 1px solid #eaecee;
+}
+
+/* line 88, ../../styles/layout.scss */
+.border--bottom {
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 93, ../../styles/layout.scss */
+[ui-view].ng-enter, [ui=view].ng-leave {
+  transition: opacity .5s ease;
+}
+
+/* line 97, ../../styles/layout.scss */
+[ui-view].ng-enter {
+  opacity: 0;
+}
+
+/* line 101, ../../styles/layout.scss */
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
+/* line 105, ../../styles/layout.scss */
+[ui-view].ng-leave-active {
+  opacity: 0;
+}
+
+/* line 110, ../../styles/layout.scss */
+.has-tooltip, .has-popover {
+  position: relative;
+}
+
+/* line 114, ../../styles/layout.scss */
+.popover {
+  position: absolute;
+  background: #c03c50;
+  color: #fcfaf5;
+  width: 200px;
+  padding: .75em;
+  z-index: 2;
+  right: 30%;
+  top: 0;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* line 127, ../../styles/layout.scss */
+.popover__dismiss.button--link {
+  color: #fcfaf5;
+  text-decoration: underline;
+}
+
+/* line 132, ../../styles/layout.scss */
+.popover__dismiss.button--link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* line 137, ../../styles/layout.scss */
+.tooltip__prompt {
+  position: absolute;
+  z-index: 100;
+  background: #f2f0e6;
+  border: 1px solid #c2c0bf;
+  width: 200px;
+  padding: .75em;
+  display: none;
+}
+
+/* line 147, ../../styles/layout.scss */
+.tooltip__controller.can-hover:hover + .tooltip__prompt {
+  display: block;
+}
+
+/* line 151, ../../styles/layout.scss */
+.tooltip--login {
+  width: 200px;
+  top: 100%;
+  left: 65px;
+}
+
+/* line 157, ../../styles/layout.scss */
+.tooltip--what-is-this {
+  position: absolute;
+  top: .2em;
+  right: 1em;
+}
+
+/* line 163, ../../styles/layout.scss */
+.tooltip--what-is-this .tooltip__controller {
+  background: rgba(163, 31, 52, 0.5);
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  text-align: center;
+  color: #f2f0e6;
+  transition: all 300ms ease;
+  margin-bottom: 0;
+  font-size: .8125rem;
+  line-height: 1.7em;
+}
+
+/* line 176, ../../styles/layout.scss */
+.tooltip--what-is-this .tooltip__controller:hover {
+  background: #a31f34;
+  color: white;
+}
+
+/* line 181, ../../styles/layout.scss */
+.tooltip--what-is-this .tooltip__prompt {
+  top: 120%;
+  right: 0;
+}

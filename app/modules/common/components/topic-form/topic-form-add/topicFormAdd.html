@@ -1,0 +1,37 @@
+<form class="topic-form topic-form--edit" stop-event>
+	<div class="row">
+		<div class="small-12 columns">
+			<input type="text" class="columns contenteditable h4 topic-title" ng-model="formTopic.displayName" ng-change="setFormChanged()" stop-event>
+		</div>
+	</div>
+
+	<div class="row">
+		<section class="small-12 medium-6 columns">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Subjects</h6>
+			</div>
+			<ul class="subjects-edit">
+				<li class="input-with-affordance flex-container aligned animation--enter-from-bottom animation--exit-to-left" ng-repeat="subject in formTopic.subject">
+					<span class="input-with-affordance__affordance delete" ng-click="formTopic.remove('subject', subject); setFormChanged()">&cross;</span>
+					<p class="" ng-bind="subject.number"></p>
+				</li>
+				<li class="topic-form__add-subject">
+					<search-subject class="search-select" subjects="subjects" upon-select="addSubject(subject)" input-placeholder="Add subject from Crosslinks"></search-subject>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="row add-row" ng-show="!showDeleteConfirmation">
+		<div class="medium-4 medium-push-8 columns">
+			<button class="button button--default " feedback-button
+			default-when="getFormDirty()" progress-when="inProgress" success-when="submitSuccess" error-when="submitError"
+			default-label="Save" progress-label="Saving..." success-label="Saved!" error-label="Error. Not saved." 
+			ng-disabled="submitSuccess || submitError || inProgress"
+			 type="button" ng-click="saveTopic(formTopic)">Save
+			</button>
+		</div>
+		
+	</div>
+
+</form>

@@ -1,0 +1,211 @@
+/* line 13, ../../styles/typography.scss */
+html {
+  font-size: 87.5%;
+}
+
+/* line 17, ../../styles/typography.scss */
+body {
+  color: #3f474e;
+  font-size: 1rem;
+  font-family: "ff-dagny-web-pro";
+  text-rendering: optimizeLegibility;
+}
+
+/* line 24, ../../styles/typography.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400;
+  font-family: "ff-dagny-web-pro";
+}
+
+/* line 31, ../../styles/typography.scss */
+p, label, .normal, .p {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* line 38, ../../styles/typography.scss */
+p.heading--bordered {
+  line-height: 1.43em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 43, ../../styles/typography.scss */
+.small {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-bottom: 1.8462em;
+}
+
+/* line 50, ../../styles/typography.scss */
+.large {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 1.2000em;
+  margin-bottom: 1.2000em;
+}
+
+/* line 57, ../../styles/typography.scss */
+h6, .h6 {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 0;
+  margin-bottom: 1.2000em;
+}
+
+/* line 64, ../../styles/typography.scss */
+h6.heading--bordered {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 70, ../../styles/typography.scss */
+h6.heading--bordered.small {
+  line-height: 2.33em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 76, ../../styles/typography.scss */
+h5, .h5 {
+  font-size: 1.5625rem;
+  /* 25px */
+  line-height: 1.9200em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.9600em;
+}
+
+/* line 83, ../../styles/typography.scss */
+h4, .h4 {
+  font-size: 1.9375rem;
+  /* 31px */
+  line-height: 1.5484em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.7742em;
+}
+
+/* line 90, ../../styles/typography.scss */
+h4.heading--bordered {
+  line-height: 1.4784em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 95, ../../styles/typography.scss */
+h3, .h3 {
+  font-size: 2.4375rem;
+  /* 39px */
+  line-height: 1.2308em;
+  /* 48px */
+  margin-top: 0.6154em;
+  margin-bottom: 0.6154em;
+}
+
+/* line 102, ../../styles/typography.scss */
+h2, .h2 {
+  font-size: 3.0625rem;
+  /* 49px */
+  line-height: 1.4694em;
+  /* 72px */
+  margin-top: 0.4898em;
+  margin-bottom: 0.4898em;
+}
+
+/* line 109, ../../styles/typography.scss */
+h1 {
+  font-size: 3.8125rem;
+  /* 61px */
+  line-height: 1.1803em;
+  /* 72px */
+  margin-top: 0.3934em;
+  margin-bottom: 0.3934em;
+}
+
+/* line 117, ../../styles/typography.scss */
+ul, ol {
+  margin: 0;
+}
+
+/* line 130, ../../styles/typography.scss */
+a {
+  cursor: pointer;
+  color: #a31f34;
+  text-decoration: none;
+  line-height: 1.3em;
+}
+
+/* line 138, ../../styles/typography.scss */
+a.small {
+  line-height: 1.2em;
+}
+
+/* line 142, ../../styles/typography.scss */
+a:hover, a:visited:hover {
+  color: #c03c50;
+  text-decoration: underline;
+}
+
+/* line 147, ../../styles/typography.scss */
+a:visited {
+  color: #811829;
+}
+
+/* line 151, ../../styles/typography.scss */
+a:focus {
+  outline: none;
+}
+
+/* line 155, ../../styles/typography.scss */
+i, .italic {
+  font-style: italic;
+}
+
+/* line 159, ../../styles/typography.scss */
+.muted {
+  color: #62717d;
+}
+
+/* line 163, ../../styles/typography.scss */
+.muted-tint-1 {
+  color: #85939f;
+}
+
+/* line 167, ../../styles/typography.scss */
+.emphasis {
+  color: #a31f34;
+  color: #8a8b8c;
+  color: #c03c50;
+}
+
+/* line 173, ../../styles/typography.scss */
+.warning {
+  color: #c03c50;
+}
+
+/* line 178, ../../styles/typography.scss */
+.bold, .warning {
+  font-weight: 600;
+}
+
+/* line 183, ../../styles/typography.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 187, ../../styles/typography.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 191, ../../styles/typography.scss */
+.text-center {
+  text-align: center;
+}

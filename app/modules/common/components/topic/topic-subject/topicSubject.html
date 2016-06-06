@@ -1,0 +1,10 @@
+
+<p class="columns">
+	<a class="comma-separated" ng-class="{'is-last': $last}" ng-repeat="number in uniqueCourseNumbers" ui-sref="topic-list({query: 'course'+number})" ng-bind="'Course ' + number"></a> 
+	<span class="muted">&gg;</span>
+
+	<a class="comma-separated" ng-class="{'is-last': $last}" ng-repeat="sub in subject" ui-sref="topic-list({query: 'subject'+sub.number})" ng-bind="sub.number"></a>
+	<span class="muted">&gg;</span>
+
+	<span class="" ng-bind="topicName"></span>
+</p>

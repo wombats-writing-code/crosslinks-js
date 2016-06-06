@@ -1,0 +1,628 @@
+/* line 13, ../../styles/typography.scss */
+html {
+  font-size: 87.5%;
+}
+
+/* line 17, ../../styles/typography.scss */
+body {
+  color: #3f474e;
+  font-size: 1rem;
+  font-family: "ff-dagny-web-pro";
+  text-rendering: optimizeLegibility;
+}
+
+/* line 24, ../../styles/typography.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400;
+  font-family: "ff-dagny-web-pro";
+}
+
+/* line 31, ../../styles/typography.scss */
+p, label, .normal, .button, .p {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* line 38, ../../styles/typography.scss */
+p.heading--bordered {
+  line-height: 1.43em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 43, ../../styles/typography.scss */
+.small, .button.small {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-bottom: 1.8462em;
+}
+
+/* line 50, ../../styles/typography.scss */
+.large {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 1.2000em;
+  margin-bottom: 1.2000em;
+}
+
+/* line 57, ../../styles/typography.scss */
+h6, .h6 {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 0;
+  margin-bottom: 1.2000em;
+}
+
+/* line 64, ../../styles/typography.scss */
+h6.heading--bordered {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 70, ../../styles/typography.scss */
+h6.heading--bordered.small {
+  line-height: 2.33em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 76, ../../styles/typography.scss */
+h5, .h5 {
+  font-size: 1.5625rem;
+  /* 25px */
+  line-height: 1.9200em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.9600em;
+}
+
+/* line 83, ../../styles/typography.scss */
+h4, .h4 {
+  font-size: 1.9375rem;
+  /* 31px */
+  line-height: 1.5484em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.7742em;
+}
+
+/* line 90, ../../styles/typography.scss */
+h4.heading--bordered {
+  line-height: 1.4784em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 95, ../../styles/typography.scss */
+h3, .h3 {
+  font-size: 2.4375rem;
+  /* 39px */
+  line-height: 1.2308em;
+  /* 48px */
+  margin-top: 0.6154em;
+  margin-bottom: 0.6154em;
+}
+
+/* line 102, ../../styles/typography.scss */
+h2, .h2 {
+  font-size: 3.0625rem;
+  /* 49px */
+  line-height: 1.4694em;
+  /* 72px */
+  margin-top: 0.4898em;
+  margin-bottom: 0.4898em;
+}
+
+/* line 109, ../../styles/typography.scss */
+h1 {
+  font-size: 3.8125rem;
+  /* 61px */
+  line-height: 1.1803em;
+  /* 72px */
+  margin-top: 0.3934em;
+  margin-bottom: 0.3934em;
+}
+
+/* line 117, ../../styles/typography.scss */
+ul, ol {
+  margin: 0;
+}
+
+/* line 130, ../../styles/typography.scss */
+a {
+  cursor: pointer;
+  color: #a31f34;
+  text-decoration: none;
+}
+
+/* line 137, ../../styles/typography.scss */
+a:hover, a:visited:hover {
+  color: #c03c50;
+  text-decoration: underline;
+}
+
+/* line 142, ../../styles/typography.scss */
+a:visited {
+  color: #811829;
+}
+
+/* line 146, ../../styles/typography.scss */
+a:focus {
+  outline: none;
+}
+
+/* line 150, ../../styles/typography.scss */
+i, .italic {
+  font-style: italic;
+}
+
+/* line 154, ../../styles/typography.scss */
+.muted {
+  color: #62717d;
+}
+
+/* line 158, ../../styles/typography.scss */
+.muted-tint-1 {
+  color: #85939f;
+}
+
+/* line 162, ../../styles/typography.scss */
+.emphasis {
+  color: #a31f34;
+  color: #8a8b8c;
+  color: #c03c50;
+}
+
+/* line 168, ../../styles/typography.scss */
+.warning {
+  color: #c03c50;
+}
+
+/* line 173, ../../styles/typography.scss */
+.bold, .warning {
+  font-weight: 600;
+}
+
+/* line 178, ../../styles/typography.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 182, ../../styles/typography.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 186, ../../styles/typography.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 13, ../../styles/typography.scss */
+html {
+  font-size: 87.5%;
+}
+
+/* line 17, ../../styles/typography.scss */
+body {
+  color: #3f474e;
+  font-size: 1rem;
+  font-family: "ff-dagny-web-pro";
+  text-rendering: optimizeLegibility;
+}
+
+/* line 24, ../../styles/typography.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400;
+  font-family: "ff-dagny-web-pro";
+}
+
+/* line 31, ../../styles/typography.scss */
+p, label, .normal, .button, .p {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* line 38, ../../styles/typography.scss */
+p.heading--bordered {
+  line-height: 1.43em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 43, ../../styles/typography.scss */
+.small, .button.small {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-bottom: 1.8462em;
+}
+
+/* line 50, ../../styles/typography.scss */
+.large {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 1.2000em;
+  margin-bottom: 1.2000em;
+}
+
+/* line 57, ../../styles/typography.scss */
+h6, .h6 {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 0;
+  margin-bottom: 1.2000em;
+}
+
+/* line 64, ../../styles/typography.scss */
+h6.heading--bordered {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 70, ../../styles/typography.scss */
+h6.heading--bordered.small {
+  line-height: 2.33em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 76, ../../styles/typography.scss */
+h5, .h5 {
+  font-size: 1.5625rem;
+  /* 25px */
+  line-height: 1.9200em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.9600em;
+}
+
+/* line 83, ../../styles/typography.scss */
+h4, .h4 {
+  font-size: 1.9375rem;
+  /* 31px */
+  line-height: 1.5484em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.7742em;
+}
+
+/* line 90, ../../styles/typography.scss */
+h4.heading--bordered {
+  line-height: 1.4784em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 95, ../../styles/typography.scss */
+h3, .h3 {
+  font-size: 2.4375rem;
+  /* 39px */
+  line-height: 1.2308em;
+  /* 48px */
+  margin-top: 0.6154em;
+  margin-bottom: 0.6154em;
+}
+
+/* line 102, ../../styles/typography.scss */
+h2, .h2 {
+  font-size: 3.0625rem;
+  /* 49px */
+  line-height: 1.4694em;
+  /* 72px */
+  margin-top: 0.4898em;
+  margin-bottom: 0.4898em;
+}
+
+/* line 109, ../../styles/typography.scss */
+h1 {
+  font-size: 3.8125rem;
+  /* 61px */
+  line-height: 1.1803em;
+  /* 72px */
+  margin-top: 0.3934em;
+  margin-bottom: 0.3934em;
+}
+
+/* line 117, ../../styles/typography.scss */
+ul, ol {
+  margin: 0;
+}
+
+/* line 130, ../../styles/typography.scss */
+a {
+  cursor: pointer;
+  color: #a31f34;
+  text-decoration: none;
+}
+
+/* line 137, ../../styles/typography.scss */
+a:hover, a:visited:hover {
+  color: #c03c50;
+  text-decoration: underline;
+}
+
+/* line 142, ../../styles/typography.scss */
+a:visited {
+  color: #811829;
+}
+
+/* line 146, ../../styles/typography.scss */
+a:focus {
+  outline: none;
+}
+
+/* line 150, ../../styles/typography.scss */
+i, .italic {
+  font-style: italic;
+}
+
+/* line 154, ../../styles/typography.scss */
+.muted {
+  color: #62717d;
+}
+
+/* line 158, ../../styles/typography.scss */
+.muted-tint-1 {
+  color: #85939f;
+}
+
+/* line 162, ../../styles/typography.scss */
+.emphasis {
+  color: #a31f34;
+  color: #8a8b8c;
+  color: #c03c50;
+}
+
+/* line 168, ../../styles/typography.scss */
+.warning {
+  color: #c03c50;
+}
+
+/* line 173, ../../styles/typography.scss */
+.bold, .warning {
+  font-weight: 600;
+}
+
+/* line 178, ../../styles/typography.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 182, ../../styles/typography.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 186, ../../styles/typography.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 6, ../../styles/old_buttons.scss */
+.button {
+  display: block;
+  width: 100%;
+  padding-top: 0.361rem;
+  padding-bottom: 0.361rem;
+  background-image: none;
+  border: 1px solid white;
+  border-radius: 0;
+  cursor: pointer;
+  padding-left: .9375em;
+  padding-right: .9375em;
+  margin: 0;
+  min-width: 33px;
+}
+
+/* line 26, ../../styles/old_buttons.scss */
+.button:focus {
+  outline: none;
+}
+
+/* line 30, ../../styles/old_buttons.scss */
+.button.disabled, .button[disabled], .button.disabled:hover, .button[disabled]:hover {
+  color: #96a0aa;
+  background-color: #f2f0e6;
+  cursor: default;
+}
+
+/* line 36, ../../styles/old_buttons.scss */
+.button--default {
+  color: #798793;
+  background-color: white;
+  border-color: #f2f0e6;
+}
+
+/* line 42, ../../styles/old_buttons.scss */
+.button--default:hover {
+  color: #3f474e;
+}
+
+/* line 46, ../../styles/old_buttons.scss */
+.button--warning {
+  color: #e16175;
+  border-color: #e16175;
+  background-color: white;
+}
+
+/* line 52, ../../styles/old_buttons.scss */
+.button--warning:hover {
+  color: #a31f34;
+  border-color: #a31f34;
+}
+
+/* line 57, ../../styles/old_buttons.scss */
+.button--link {
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* line 66, ../../styles/old_buttons.scss */
+.button--delete {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a31f34;
+  background-color: transparent;
+  border: none;
+}
+
+/* line 77, ../../styles/old_buttons.scss */
+.button--delete:hover {
+  color: #c03c50;
+}
+
+/* line 90, ../../styles/old_buttons.scss */
+.button-bar {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+/* line 95, ../../styles/old_buttons.scss */
+.button-bar__button {
+  border-radius: 0;
+  display: block;
+  margin: 0;
+  border-right: 0;
+}
+
+/* line 102, ../../styles/old_buttons.scss */
+.button-bar__button:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-right: 1px solid #c0c6cc;
+}
+
+/* line 108, ../../styles/old_buttons.scss */
+.button-bar__button:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* line 114, ../../styles/old_buttons.scss */
+.tab-bar {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #a31f34;
+}
+
+/* line 121, ../../styles/old_buttons.scss */
+a.tab-bar__tab {
+  position: relative;
+  margin: 0 .5em 7px 0;
+  padding: .8em .9375em .4em .9375em;
+  border-radius: 0;
+  /*
+  	border-top: 2px solid $background-secondary-tint-2;
+  	border-left: 2px solid $background-secondary-tint-2;
+  	border-right: 2px solid $background-secondary-tint-2;
+  */
+  color: rgba(63, 71, 78, 0.5);
+  border-top: 2px solid #a31f34;
+  border-left: 2px solid #a31f34;
+  border-right: 2px solid #a31f34;
+  border-bottom: none;
+  border-color: rgba(163, 31, 52, 0.1);
+  transition: all .3s ease;
+}
+
+/* line 142, ../../styles/old_buttons.scss */
+a.tab-bar__tab:visited {
+  color: #3f474e;
+}
+
+/* line 146, ../../styles/old_buttons.scss */
+.tab-bar__tab:hover {
+  opacity: 1;
+  color: #3f474e;
+}
+
+/* line 151, ../../styles/old_buttons.scss */
+.tab-bar__tab.js-selected {
+  opacity: 1;
+  color: #3f474e;
+  border-color: #a31f34;
+}
+
+/* line 160, ../../styles/old_buttons.scss */
+.feedback-button {
+  position: relative;
+}
+
+/* line 164, ../../styles/old_buttons.scss */
+.feedback-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  opacity: .3;
+  background-color: black;
+  transition: width 2s ease-out;
+}
+
+/* line 176, ../../styles/old_buttons.scss */
+.feedback-button.js-in-progress::before {
+  width: 100%;
+}
+
+/* line 180, ../../styles/old_buttons.scss */
+.button--add-signage {
+  background: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #a31f34;
+  border: none;
+  margin-bottom: 0;
+}
+
+/* line 190, ../../styles/old_buttons.scss */
+.button--add-signage:hover {
+  color: #c03c50;
+}
+
+/* line 195, ../../styles/old_buttons.scss */
+.button--menu {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* line 201, ../../styles/old_buttons.scss */
+.button__icon {
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+}
+
+/* line 207, ../../styles/old_buttons.scss */
+.button .button__icon:hover {
+  color: #c03c50;
+}
+
+/* line 211, ../../styles/old_buttons.scss */
+.clickable {
+  color: #62717d;
+  cursor: pointer;
+}
+
+/* line 216, ../../styles/old_buttons.scss */
+.clickable:hover {
+  color: #c03c50;
+}

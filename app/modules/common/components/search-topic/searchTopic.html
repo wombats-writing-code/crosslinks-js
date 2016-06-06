@@ -1,0 +1,14 @@
+
+<div class="search-topic-wrapper" analytics-event="search">
+	<input name="search-topic-input" class="input search-topic__input" ng-model="searchQuery" ng-model-options="{debounce: 200}" ng-change="searchQuery.length > 2 && search(topics, searchQuery);" placeholder="{{inputPlaceholder}}" stop-event> 
+	<ul class="search-topic__dropdown" ng-if="searchQuery.length > 2" mathjax="searchResults.length">
+		<li class="search-topic__dropdown-item clearfix" ng-show="searchResults.length == 0">
+			<p class="search-topic__dropdown--item__title columns"> Nothing matches! Try looking at All Topics or searching for the class?</p>
+		</li>
+		<li class="search-topic__dropdown-item clearfix" ng-repeat="topic in searchResults | orderBy:'displayName'" ng-click="selectItem(topic);" ng-attr-id="{{topic.id}}">
+			<p class="search-topic__dropdown-item__title small-12 medium-3 columns" ng-bind="topic.displayName"></p>
+
+			<p class="search-topic__dropdown-item__description small-12 medium-9 columns" ng-bind="truncateDescription(topic.description)"></p>
+		</li>
+	</ul>
+</div>

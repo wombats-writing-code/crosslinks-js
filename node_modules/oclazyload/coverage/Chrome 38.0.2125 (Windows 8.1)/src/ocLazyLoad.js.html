@@ -1,0 +1,3283 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/ocLazyLoad.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../prettify.css">
+
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Helvetica Neue, Helvetica,Arial;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 10em;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Consolas, Menlo, Monaco, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 14px;
+            font-size: 14px;
+            -moz-tab-size: 2;
+            -o-tab-size:  2;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { text-decoration: none; color: #000; }
+        div.coverage-summary a:visited { text-decoration: none; color: #333; }
+        div.coverage-summary a:hover { text-decoration: underline; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: url("https://yui-s.yahooapis.com/3.6.0/build/datatable-sort/assets/skins/sam/sort-arrow-sprite.png") no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">./src/ocLazyLoad.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">70% <small>(329 / 470)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">54.6% <small>(184 / 337)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">73.75% <small>(59 / 80)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">70.15% <small>(329 / 469)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">./src\</a> &#187; ocLazyLoad.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">100</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">20</span>
+<span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function() {
+  'use strict';
+  var regModules = ['ng'],
+    regInvokes = {},
+    regConfigs = [],
+    justLoaded = [],
+    runBlocks = {},
+    ocLazyLoad = angular.module('oc.lazyLoad', ['ng']),
+    broadcast = angular.noop;
+&nbsp;
+  ocLazyLoad.provider('$ocLazyLoad', ['$controllerProvider', '$provide', '$compileProvider', '$filterProvider', '$injector', '$animateProvider',
+    function($controllerProvider, $provide, $compileProvider, $filterProvider, $injector, $animateProvider) {
+      var modules = {},
+        providers = {
+          $controllerProvider: $controllerProvider,
+          $compileProvider: $compileProvider,
+          $filterProvider: $filterProvider,
+          $provide: $provide, // other things
+          $injector: $injector,
+          $animateProvider: $animateProvider
+        },
+        anchor = document.getElementsByTagName('head')[0] || <span class="branch-1 cbranch-no" title="branch not covered" >document.getElementsByTagName('body')[0],</span>
+        jsLoader, cssLoader, templatesLoader,
+        debug = false,
+        events = false;
+&nbsp;
+      // Let's get the list of loaded modules &amp; components
+      init(angular.element(window.document));
+&nbsp;
+      this.$get = ['$log', '$q', '$templateCache', '$http', '$rootElement', '$rootScope', '$cacheFactory', '$interval', function($log, $q, $templateCache, $http, $rootElement, $rootScope, $cacheFactory, $interval) {
+        var instanceInjector,
+          filesCache = $cacheFactory('ocLazyLoad'),
+          uaCssChecked = false,
+          useCssLoadPatch = false;
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(!debug) {
+          $log = {};
+          $log['error'] = angular.noop;
+          $log['warn'] = angular.noop;
+          $log['info'] = angular.noop;
+        }
+&nbsp;
+        // Make this lazy because at the moment that $get() is called the instance injector hasn't been assigned to the rootElement yet
+        providers.getInstanceInjector = function() {
+          return (instanceInjector) ? instanceInjector : (instanceInjector = ($rootElement.data('$injector') || angular.injector()));
+        };
+&nbsp;
+        broadcast = function broadcast(eventName, params) {
+          <span class="missing-if-branch" title="if path not taken" >I</span>if(events) {
+<span class="cstat-no" title="statement not covered" >            $rootScope.$broadcast(eventName, params);</span>
+          }
+          <span class="missing-if-branch" title="if path not taken" >I</span>if(debug) {
+<span class="cstat-no" title="statement not covered" >            $log.info(eventName, params);</span>
+          }
+        }
+&nbsp;
+        /**
+         * Load a js/css file
+         * @param type
+         * @param path
+         * @returns promise
+         */
+        var buildElement = function buildElement(type, path, params) {
+          var deferred = $q.defer(),
+            el, loaded,
+            cacheBuster = <span class="fstat-no" title="function not covered" >function cacheBuster(url) {</span>
+<span class="cstat-no" title="statement not covered" >              var dc = new Date().getTime();</span>
+<span class="cstat-no" title="statement not covered" >              if(url.indexOf('?') &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >                if(url.substring(0, url.length - 1) === '&amp;') {</span>
+<span class="cstat-no" title="statement not covered" >                  return url + '_dc=' + dc;</span>
+                }
+<span class="cstat-no" title="statement not covered" >                return url + '&amp;_dc=' + dc;</span>
+              } else {
+<span class="cstat-no" title="statement not covered" >                return url + '?_dc=' + dc;</span>
+              }
+            };
+&nbsp;
+          // Store the promise early so the file load can be detected by other parallel lazy loads
+          // (ie: multiple routes on one page) a 'true' value isn't sufficient
+          // as it causes false positive load results.
+          <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(filesCache.get(path))) {
+            filesCache.put(path, deferred.promise);
+          }
+&nbsp;
+          // Switch in case more content types are added later
+          switch(type) {
+            case 'css':
+              el = document.createElement('link');
+              el.type = 'text/css';
+              el.rel = 'stylesheet';
+              el.href = params.cache === false ? <span class="branch-0 cbranch-no" title="branch not covered" >cacheBuster(path) </span>: path;
+              break;
+            case 'js':
+              el = document.createElement('script');
+              el.src = params.cache === false ? <span class="branch-0 cbranch-no" title="branch not covered" >cacheBuster(path) </span>: path;
+              break;
+<span class="branch-2 cbranch-no" title="branch not covered" >            default:</span>
+<span class="cstat-no" title="statement not covered" >              deferred.reject(new Error('Requested type "' + type + '" is not known. Could not inject "' + path + '"'));</span>
+<span class="cstat-no" title="statement not covered" >              break;</span>
+          }
+          el.onload = el['onreadystatechange'] = function(e) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if((el['readyState'] &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!(/^c|loade/.test(el['readyState'])))</span> || loaded) <span class="cstat-no" title="statement not covered" >return;</span>
+            el.onload = el['onreadystatechange'] = null
+            loaded = 1;
+            broadcast('ocLazyLoad.fileLoaded', path);
+            deferred.resolve();
+          }
+          el.onerror = function(e) {
+            deferred.reject(new Error('Unable to load ' + path));
+          }
+          el.async = params.serie ? <span class="branch-0 cbranch-no" title="branch not covered" >0 </span>: 1;
+&nbsp;
+          var insertBeforeElem = anchor.lastChild;
+          <span class="missing-if-branch" title="if path not taken" >I</span>if(params.insertBefore) {
+<span class="cstat-no" title="statement not covered" >            var element = angular.element(params.insertBefore);</span>
+<span class="cstat-no" title="statement not covered" >            if(element &amp;&amp; element.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >              insertBeforeElem = element[0];</span>
+            }
+          }
+          anchor.insertBefore(el, insertBeforeElem);
+&nbsp;
+          /*
+           The event load or readystatechange doesn't fire in:
+           - iOS &lt; 6       (default mobile browser)
+           - Android &lt; 4.4 (default mobile browser)
+           - Safari &lt; 6    (desktop browser)
+           */
+          if(type == 'css') {
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(!uaCssChecked) {
+              var ua = navigator.userAgent.toLowerCase();
+&nbsp;
+              // iOS &lt; 6
+              <span class="missing-if-branch" title="if path not taken" >I</span>if(/iP(hone|od|ad)/.test(navigator.platform)) {
+<span class="cstat-no" title="statement not covered" >                var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);</span>
+<span class="cstat-no" title="statement not covered" >                var iOSVersion = parseFloat([parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)].join('.'));</span>
+<span class="cstat-no" title="statement not covered" >                useCssLoadPatch = iOSVersion &lt; 6;</span>
+              } else <span class="missing-if-branch" title="if path not taken" >I</span>if(ua.indexOf("android") &gt; -1) { // Android &lt; 4.4
+<span class="cstat-no" title="statement not covered" >                var androidVersion = parseFloat(ua.slice(ua.indexOf("android") + 8));</span>
+<span class="cstat-no" title="statement not covered" >                useCssLoadPatch = androidVersion &lt; 4.4;</span>
+              } else <span class="missing-if-branch" title="if path not taken" >I</span>if(ua.indexOf('safari') &gt; -1 &amp;&amp; ua.indexOf('chrome') == -1) {
+<span class="cstat-no" title="statement not covered" >                var safariVersion = parseFloat(ua.match(/version\/([\.\d]+)/i)[1]);</span>
+<span class="cstat-no" title="statement not covered" >                useCssLoadPatch = safariVersion &lt; 6;</span>
+              }
+            }
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(useCssLoadPatch) {
+<span class="cstat-no" title="statement not covered" >              var tries = 1000; </span>// * 20 = 20000 miliseconds
+<span class="cstat-no" title="statement not covered" >              var interval = $interval(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" >                  el.sheet.cssRules;</span>
+<span class="cstat-no" title="statement not covered" >                  $interval.cancel(interval);</span>
+<span class="cstat-no" title="statement not covered" >                  el.onload();</span>
+                } catch(e) {
+<span class="cstat-no" title="statement not covered" >                  if(--tries &lt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    el.onerror();</span>
+                  }
+                }
+              }, 20);
+            }
+          }
+&nbsp;
+          return deferred.promise;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(jsLoader)) {
+          /**
+           * jsLoader function
+           * @type Function
+           * @param paths array list of js files to load
+           * @param callback to call when everything is loaded. We use a callback and not a promise
+           * @param params object config parameters
+           * because the user can overwrite jsLoader and it will probably not use promises :(
+           */
+          jsLoader = function(paths, callback, params) {
+            var promises = [];
+            angular.forEach(paths, function loading(path) {
+              promises.push(buildElement('js', path, params));
+            });
+            $q.all(promises).then(function success() {
+              callback();
+            }, function error(err) {
+              callback(err);
+            });
+          }
+          jsLoader.ocLazyLoadLoader = true;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(cssLoader)) {
+          /**
+           * cssLoader function
+           * @type Function
+           * @param paths array list of css files to load
+           * @param callback to call when everything is loaded. We use a callback and not a promise
+           * @param params object config parameters
+           * because the user can overwrite cssLoader and it will probably not use promises :(
+           */
+          cssLoader = function(paths, callback, params) {
+            var promises = [];
+            angular.forEach(paths, function loading(path) {
+              promises.push(buildElement('css', path, params));
+            });
+            $q.all(promises).then(function success() {
+              callback();
+            }, function error(err) {
+              callback(err);
+            });
+          }
+          cssLoader.ocLazyLoadLoader = true;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(templatesLoader)) {
+          /**
+           * templatesLoader function
+           * @type Function
+           * @param paths array list of css files to load
+           * @param callback to call when everything is loaded. We use a callback and not a promise
+           * @param params object config parameters for $http
+           * because the user can overwrite templatesLoader and it will probably not use promises :(
+           */
+          templatesLoader = function(paths, callback, params) {
+            var promises = [];
+            angular.forEach(paths, function(url) {
+              var deferred = $q.defer();
+              promises.push(deferred.promise);
+              $http.get(url, params).success(function(data) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isString(data) &amp;&amp; data.length &gt; 0) {
+                  angular.forEach(angular.element(data), function(node) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if(node.nodeName === 'SCRIPT' &amp;&amp; node.type === 'text/ng-template') {
+                      $templateCache.put(node.id, node.innerHTML);
+                    }
+                  });
+                }
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(filesCache.get(url))) {
+                  filesCache.put(url, true);
+                }
+                deferred.resolve();
+              }).error(function(err) {
+                deferred.reject(new Error('Unable to load template file "' + url + '": ' + err));
+              });
+            });
+            return $q.all(promises).then(function success() {
+              callback();
+            }, function error(err) {
+              callback(err);
+            });
+          }
+          templatesLoader.ocLazyLoadLoader = true;
+        }
+&nbsp;
+        var filesLoader = function(config, params) {
+          var cssFiles = [],
+            templatesFiles = [],
+            jsFiles = [],
+            promises = [],
+            cachePromise = null;
+&nbsp;
+          angular.extend(params || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span> config);
+&nbsp;
+          var pushFile = function(path) {
+            cachePromise = filesCache.get(path);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(cachePromise) || <span class="branch-1 cbranch-no" title="branch not covered" >params.cache === false)</span> {
+              if(/\.css[^\.]*$/.test(path) &amp;&amp; cssFiles.indexOf(path) === -1) {
+                cssFiles.push(path);
+              } else if(/\.(htm|html)[^\.]*$/.test(path) &amp;&amp; templatesFiles.indexOf(path) === -1) {
+                templatesFiles.push(path);
+              } else <span class="missing-if-branch" title="else path not taken" >E</span>if(jsFiles.indexOf(path) === -1) {
+                jsFiles.push(path);
+              }
+            } else <span class="cstat-no" title="statement not covered" >if(cachePromise) {</span>
+<span class="cstat-no" title="statement not covered" >              promises.push(cachePromise);</span>
+            }
+          }
+&nbsp;
+          <span class="missing-if-branch" title="if path not taken" >I</span>if(params.serie) {
+<span class="cstat-no" title="statement not covered" >            pushFile(params.files.shift());</span>
+          } else {
+            angular.forEach(params.files, function(path) {
+              pushFile(path);
+            });
+          }
+&nbsp;
+          if(cssFiles.length &gt; 0) {
+            var cssDeferred = $q.defer();
+            cssLoader(cssFiles, function(err) {
+              if(angular.isDefined(err) &amp;&amp; cssLoader.hasOwnProperty('ocLazyLoadLoader')) {
+                $log.error(err);
+                cssDeferred.reject(err);
+              } else {
+                cssDeferred.resolve();
+              }
+            }, params);
+            promises.push(cssDeferred.promise);
+          }
+&nbsp;
+          if(templatesFiles.length &gt; 0) {
+            var templatesDeferred = $q.defer();
+            templatesLoader(templatesFiles, function(err) {
+              if(angular.isDefined(err) &amp;&amp; templatesLoader.hasOwnProperty('ocLazyLoadLoader')) {
+                $log.error(err);
+                templatesDeferred.reject(err);
+              } else {
+                templatesDeferred.resolve();
+              }
+            }, params);
+            promises.push(templatesDeferred.promise);
+          }
+&nbsp;
+          if(jsFiles.length &gt; 0) {
+            var jsDeferred = $q.defer();
+            jsLoader(jsFiles, function(err) {
+              if(angular.isDefined(err) &amp;&amp; jsLoader.hasOwnProperty('ocLazyLoadLoader')) {
+                $log.error(err);
+                jsDeferred.reject(err);
+              } else {
+                jsDeferred.resolve();
+              }
+            }, params);
+            promises.push(jsDeferred.promise);
+          }
+&nbsp;
+          <span class="missing-if-branch" title="if path not taken" >I</span>if(params.serie &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >params.files.length &gt; 0)</span> {
+<span class="cstat-no" title="statement not covered" >            return $q.all(promises).then(<span class="fstat-no" title="function not covered" >function success() {</span></span>
+<span class="cstat-no" title="statement not covered" >              return filesLoader(config, params);</span>
+            });
+          } else {
+            return $q.all(promises);
+          }
+        }
+&nbsp;
+        return {
+          /**
+           * Let you get a module config object
+           * @param moduleName String the name of the module
+           * @returns {*}
+           */
+          getModuleConfig: function(moduleName) {
+            if(!angular.isString(moduleName)) {
+              throw new Error('You need to give the name of the module to get');
+            }
+            if(!modules[moduleName]) {
+              return null;
+            }
+            return modules[moduleName];
+          },
+&nbsp;
+          /**
+           * Let you define a module config object
+           * @param moduleConfig Object the module config object
+           * @returns {*}
+           */
+          setModuleConfig: function(moduleConfig) {
+            if(!angular.isObject(moduleConfig)) {
+              throw new Error('You need to give the module config object to set');
+            }
+            modules[moduleConfig.name] = moduleConfig;
+            return moduleConfig;
+          },
+&nbsp;
+          /**
+           * Returns the list of loaded modules
+           * @returns {string[]}
+           */
+          getModules: function() {
+            return regModules;
+          },
+&nbsp;
+          /**
+           * Let you check if a module has been loaded into Angular or not
+           * @param modulesNames String/Object a module name, or a list of module names
+           * @returns {boolean}
+           */
+          isLoaded: function(modulesNames) {
+            var moduleLoaded = function(module) {
+              var isLoaded = regModules.indexOf(module) &gt; -1;
+              if(!isLoaded) {
+                isLoaded = !!moduleExists(module);
+              }
+              return isLoaded;
+            }
+            if(angular.isString(modulesNames)) {
+              modulesNames = [modulesNames];
+            }
+            if(angular.isArray(modulesNames)) {
+              var i, len;
+              for(i = 0, len = modulesNames.length; i &lt; len; i++) {
+                if(!moduleLoaded(modulesNames[i])) {
+                  return false;
+                }
+              }
+              return true;
+            } else {
+              throw new Error('You need to define the module(s) name(s)');
+            }
+          },
+&nbsp;
+          /**
+           * Load a module or a list of modules into Angular
+           * @param module Mixed the name of a predefined module config object, or a module config object, or an array of either
+           * @param params Object optional parameters
+           * @returns promise
+           */
+          load: function(module, params) {
+            var self = this,
+              config = null,
+              moduleCache = [],
+              deferredList = [],
+              deferred = $q.defer(),
+              moduleName,
+              errText;
+&nbsp;
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isUndefined(params)) {
+              params = {};
+            }
+&nbsp;
+            // If module is an array, break it down
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(angular.isArray(module)) {
+              // Resubmit each entry as a single module
+<span class="cstat-no" title="statement not covered" >              angular.forEach(module, <span class="fstat-no" title="function not covered" >function(m) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if(m) {</span>
+<span class="cstat-no" title="statement not covered" >                  deferredList.push(self.load(m, params));</span>
+                }
+              });
+&nbsp;
+              // Resolve the promise once everything has loaded
+<span class="cstat-no" title="statement not covered" >              $q.all(deferredList).then(<span class="fstat-no" title="function not covered" >function success() {</span></span>
+<span class="cstat-no" title="statement not covered" >                deferred.resolve(module);</span>
+              }, <span class="fstat-no" title="function not covered" >function error(err) {</span>
+<span class="cstat-no" title="statement not covered" >                deferred.reject(err);</span>
+              });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >              return deferred.promise;</span>
+            }
+&nbsp;
+            moduleName = getModuleName(module);
+&nbsp;
+            // Get or Set a configuration depending on what was passed in
+            if(typeof module === 'string') {
+              config = self.getModuleConfig(module);
+              <span class="missing-if-branch" title="else path not taken" >E</span>if(!config) {
+                config = {
+                  files: [module]
+                };
+                moduleName = null;
+              }
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if(typeof module === 'object') {
+              config = self.setModuleConfig(module);
+            }
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(config === null) {
+<span class="cstat-no" title="statement not covered" >              errText = 'Module "' + moduleName + '" is not configured, cannot load.';</span>
+<span class="cstat-no" title="statement not covered" >              $log.error(errText);</span>
+<span class="cstat-no" title="statement not covered" >              deferred.reject(new Error(errText));</span>
+            } else {
+              // deprecated
+              <span class="missing-if-branch" title="if path not taken" >I</span>if(angular.isDefined(config.template)) {
+<span class="cstat-no" title="statement not covered" >                if(angular.isUndefined(config.files)) {</span>
+<span class="cstat-no" title="statement not covered" >                  config.files = [];</span>
+                }
+<span class="cstat-no" title="statement not covered" >                if(angular.isString(config.template)) {</span>
+<span class="cstat-no" title="statement not covered" >                  config.files.push(config.template);</span>
+                } else <span class="cstat-no" title="statement not covered" >if(angular.isArray(config.template)) {</span>
+<span class="cstat-no" title="statement not covered" >                  config.files.concat(config.template);</span>
+                }
+              }
+            }
+&nbsp;
+            moduleCache.push = function(value) {
+              <span class="missing-if-branch" title="else path not taken" >E</span>if(this.indexOf(value) === -1) {
+                Array.prototype.push.apply(this, arguments);
+              }
+            };
+&nbsp;
+            // If this module has been loaded before, re-use it.
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(angular.isDefined(moduleName) &amp;&amp; moduleExists(moduleName) &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >regModules.indexOf(moduleName) !== -1)</span> {
+<span class="cstat-no" title="statement not covered" >              moduleCache.push(moduleName);</span>
+&nbsp;
+              // if we don't want to load new files, resolve here
+<span class="cstat-no" title="statement not covered" >              if(angular.isUndefined(config.files)) {</span>
+<span class="cstat-no" title="statement not covered" >                deferred.resolve();</span>
+<span class="cstat-no" title="statement not covered" >                return deferred.promise;</span>
+              }
+            }
+&nbsp;
+            var localParams = {};
+            angular.extend(localParams, params, config);
+&nbsp;
+            var loadDependencies = function loadDependencies(module) {
+              var moduleName,
+                loadedModule,
+                requires,
+                diff,
+                promisesList = [];
+&nbsp;
+              moduleName = getModuleName(module);
+              <span class="missing-if-branch" title="if path not taken" >I</span>if(moduleName === null) {
+<span class="cstat-no" title="statement not covered" >                return $q.when();</span>
+              } else {
+                try {
+                  loadedModule = getModule(moduleName);
+                } catch(e) {
+<span class="cstat-no" title="statement not covered" >                  var deferred = $q.defer();</span>
+<span class="cstat-no" title="statement not covered" >                  $log.error(e.message);</span>
+<span class="cstat-no" title="statement not covered" >                  deferred.reject(e);</span>
+<span class="cstat-no" title="statement not covered" >                  return deferred.promise;</span>
+                }
+                requires = getRequires(loadedModule);
+              }
+&nbsp;
+              angular.forEach(requires, <span class="fstat-no" title="function not covered" >function(requireEntry) {</span>
+                // If no configuration is provided, try and find one from a previous load.
+                // If there isn't one, bail and let the normal flow run
+<span class="cstat-no" title="statement not covered" >                if(typeof requireEntry === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >                  var config = self.getModuleConfig(requireEntry);</span>
+<span class="cstat-no" title="statement not covered" >                  if(config === null) {</span>
+<span class="cstat-no" title="statement not covered" >                    moduleCache.push(requireEntry); </span>// We don't know about this module, but something else might, so push it anyway.
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                  }
+<span class="cstat-no" title="statement not covered" >                  requireEntry = config;</span>
+                }
+&nbsp;
+                // Check if this dependency has been loaded previously
+<span class="cstat-no" title="statement not covered" >                if(moduleExists(requireEntry.name)) {</span>
+<span class="cstat-no" title="statement not covered" >                  if(typeof module !== 'string') {</span>
+                    // compare against the already loaded module to see if the new definition adds any new files
+<span class="cstat-no" title="statement not covered" >                    diff = requireEntry.files.filter(<span class="fstat-no" title="function not covered" >function(n) {</span></span>
+<span class="cstat-no" title="statement not covered" >                      return self.getModuleConfig(requireEntry.name).files.indexOf(n) &lt; 0;</span>
+                    });
+&nbsp;
+                    // If the module was redefined, advise via the console
+<span class="cstat-no" title="statement not covered" >                    if(diff.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >                      $log.warn('Module "', moduleName, '" attempted to redefine configuration for dependency. "', requireEntry.name, '"\n Additional Files Loaded:', diff);</span>
+                    }
+&nbsp;
+                    // Push everything to the file loader, it will weed out the duplicates.
+<span class="cstat-no" title="statement not covered" >                    promisesList.push(filesLoader(requireEntry.files, localParams).then(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                      return loadDependencies(requireEntry);</span>
+                    }));
+                  }
+<span class="cstat-no" title="statement not covered" >                  return;</span>
+                } else <span class="cstat-no" title="statement not covered" >if(typeof requireEntry === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >                  if(requireEntry.hasOwnProperty('name') &amp;&amp; requireEntry['name']) {</span>
+                    // The dependency doesn't exist in the module cache and is a new configuration, so store and push it.
+<span class="cstat-no" title="statement not covered" >                    self.setModuleConfig(requireEntry);</span>
+<span class="cstat-no" title="statement not covered" >                    moduleCache.push(requireEntry['name']);</span>
+                  }
+&nbsp;
+                  // CSS Loading Handler
+<span class="cstat-no" title="statement not covered" >                  if(requireEntry.hasOwnProperty('css') &amp;&amp; requireEntry['css'].length !== 0) {</span>
+                    // Locate the document insertion point
+<span class="cstat-no" title="statement not covered" >                    angular.forEach(requireEntry['css'], <span class="fstat-no" title="function not covered" >function(path) {</span></span>
+<span class="cstat-no" title="statement not covered" >                      buildElement('css', path, localParams);</span>
+                    });
+                  }
+                  // CSS End.
+                }
+&nbsp;
+                // Check if the dependency has any files that need to be loaded. If there are, push a new promise to the promise list.
+<span class="cstat-no" title="statement not covered" >                if(requireEntry.hasOwnProperty('files') &amp;&amp; requireEntry.files.length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >                  if(requireEntry.files) {</span>
+<span class="cstat-no" title="statement not covered" >                    promisesList.push(filesLoader(requireEntry, localParams).then(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                      return loadDependencies(requireEntry);</span>
+                    }));
+                  }
+                }
+              });
+&nbsp;
+              // Create a wrapper promise to watch the promise list and resolve it once everything is done.
+              return $q.all(promisesList);
+            }
+&nbsp;
+            filesLoader(config, localParams).then(function success() {
+              <span class="missing-if-branch" title="if path not taken" >I</span>if(moduleName === null) {
+<span class="cstat-no" title="statement not covered" >                deferred.resolve(module);</span>
+              } else {
+                moduleCache.push(moduleName);
+                loadDependencies(moduleName).then(function success() {
+                  try {
+                    justLoaded = [];
+                    register(providers, moduleCache, localParams);
+                  } catch(e) {
+<span class="cstat-no" title="statement not covered" >                    $log.error(e.message);</span>
+<span class="cstat-no" title="statement not covered" >                    deferred.reject(e);</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                  }
+                  deferred.resolve(module);
+                }, <span class="fstat-no" title="function not covered" >function error(err) {</span>
+<span class="cstat-no" title="statement not covered" >                  deferred.reject(err);</span>
+                });
+              }
+            }, function error(err) {
+              deferred.reject(err);
+            });
+&nbsp;
+            return deferred.promise;
+          }
+        };
+      }];
+&nbsp;
+      this.config = function(config) {
+        if(angular.isDefined(config.jsLoader) || angular.isDefined(config.asyncLoader)) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if(!angular.isFunction(config.jsLoader || config.asyncLoader)) {
+            throw('The js loader needs to be a function');
+          }
+<span class="cstat-no" title="statement not covered" >          jsLoader = config.jsLoader || config.asyncLoader;</span>
+        }
+&nbsp;
+        if(angular.isDefined(config.cssLoader)) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if(!angular.isFunction(config.cssLoader)) {
+            throw('The css loader needs to be a function');
+          }
+<span class="cstat-no" title="statement not covered" >          cssLoader = config.cssLoader;</span>
+        }
+&nbsp;
+        if(angular.isDefined(config.templatesLoader)) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if(!angular.isFunction(config.templatesLoader)) {
+            throw('The template loader needs to be a function');
+          }
+<span class="cstat-no" title="statement not covered" >          templatesLoader = config.templatesLoader;</span>
+        }
+&nbsp;
+        // for bootstrap apps, we need to define the main module name
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(angular.isDefined(config.loadedModules)) {
+<span class="cstat-no" title="statement not covered" >          var addRegModule = <span class="fstat-no" title="function not covered" >function(loadedModule) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if(regModules.indexOf(loadedModule) &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >              regModules.push(loadedModule);</span>
+<span class="cstat-no" title="statement not covered" >              angular.forEach(angular.module(loadedModule).requires, addRegModule);</span>
+            }
+          };
+<span class="cstat-no" title="statement not covered" >          angular.forEach(config.loadedModules, addRegModule);</span>
+        }
+&nbsp;
+        // If we want to define modules configs
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isDefined(config.modules)) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isArray(config.modules)) {
+            angular.forEach(config.modules, function(moduleConfig) {
+              modules[moduleConfig.name] = moduleConfig;
+            });
+          } else {
+<span class="cstat-no" title="statement not covered" >            modules[config.modules.name] = config.modules;</span>
+          }
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(angular.isDefined(config.debug)) {
+<span class="cstat-no" title="statement not covered" >          debug = config.debug;</span>
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(angular.isDefined(config.events)) {
+<span class="cstat-no" title="statement not covered" >          events = config.events;</span>
+        }
+      };
+    }]);
+&nbsp;
+  ocLazyLoad.directive('ocLazyLoad', ['$ocLazyLoad', '$compile', '$animate', '$parse',
+<span class="fstat-no" title="function not covered" >    function($ocLazyLoad, $compile, $animate, $parse) {</span>
+<span class="cstat-no" title="statement not covered" >      return {</span>
+        restrict: 'A',
+        terminal: true,
+        priority: 1000,
+        compile: <span class="fstat-no" title="function not covered" >function(element, attrs) {</span>
+          // we store the content and remove it before compilation
+<span class="cstat-no" title="statement not covered" >          var content = element[0].innerHTML;</span>
+<span class="cstat-no" title="statement not covered" >          element.html('');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          return <span class="fstat-no" title="function not covered" >function($scope, $element, $attr) {</span></span>
+<span class="cstat-no" title="statement not covered" >            var model = $parse($attr.ocLazyLoad);</span>
+<span class="cstat-no" title="statement not covered" >            $scope.$watch(<span class="fstat-no" title="function not covered" >function() {</span></span>
+              // it can be a module name (string), an object, an array, or a scope reference to any of this
+<span class="cstat-no" title="statement not covered" >              return model($scope) || $attr.ocLazyLoad;</span>
+            }, <span class="fstat-no" title="function not covered" >function(moduleName) {</span>
+<span class="cstat-no" title="statement not covered" >              if(angular.isDefined(moduleName)) {</span>
+<span class="cstat-no" title="statement not covered" >                $ocLazyLoad.load(moduleName).then(<span class="fstat-no" title="function not covered" >function success(moduleConfig) {</span></span>
+<span class="cstat-no" title="statement not covered" >                  $animate.enter($compile(content)($scope), null, $element);</span>
+                });
+              }
+            }, true);
+          };
+        }
+      };
+    }]);
+&nbsp;
+  /**
+   * Get the list of required modules/services/... for this module
+   * @param module
+   * @returns {Array}
+   */
+  function getRequires(module) {
+    var requires = [];
+    angular.forEach(module.requires, <span class="fstat-no" title="function not covered" >function(requireModule) {</span>
+<span class="cstat-no" title="statement not covered" >      if(regModules.indexOf(requireModule) === -1) {</span>
+<span class="cstat-no" title="statement not covered" >        requires.push(requireModule);</span>
+      }
+    });
+    return requires;
+  }
+&nbsp;
+  /**
+   * Check if a module exists and returns it if it does
+   * @param moduleName
+   * @returns {boolean}
+   */
+  function moduleExists(moduleName) {
+    try {
+      return angular.module(moduleName);
+    } catch(e) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if(/No module/.test(e) || (e.message.indexOf('$injector:nomod') &gt; -1)) {
+        return false;
+      }
+    }
+  }
+&nbsp;
+  function getModule(moduleName) {
+    try {
+      return angular.module(moduleName);
+    } catch(e) {
+      // this error message really suxx
+<span class="cstat-no" title="statement not covered" >      if(/No module/.test(e) || (e.message.indexOf('$injector:nomod') &gt; -1)) {</span>
+<span class="cstat-no" title="statement not covered" >        e.message = 'The module "' + moduleName + '" that you are trying to load does not exist. ' + e.message</span>
+      }
+<span class="cstat-no" title="statement not covered" >      throw e;</span>
+    }
+  }
+&nbsp;
+  function invokeQueue(providers, queue, moduleName, reconfig) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(!queue) {
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+    var i, len, args, provider;
+    for(i = 0, len = queue.length; i &lt; len; i++) {
+      args = queue[i];
+      <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isArray(args)) {
+        if(providers !== null) {
+          <span class="missing-if-branch" title="else path not taken" >E</span>if(providers.hasOwnProperty(args[0])) {
+            provider = providers[args[0]];
+          } else {
+<span class="cstat-no" title="statement not covered" >            throw new Error('unsupported provider ' + args[0]);</span>
+          }
+        }
+        var isNew = registerInvokeList(args, moduleName);
+        if(args[1] !== 'invoke') {
+          if(isNew &amp;&amp; angular.isDefined(provider)) {
+            provider[args[1]].apply(provider, args[2]);
+          }
+        } else { // config block
+          var callInvoke = function(fct) {
+            var invoked = regConfigs.indexOf(moduleName + '-' + fct);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(invoked === -1 || <span class="branch-1 cbranch-no" title="branch not covered" >reconfig)</span> {
+              <span class="missing-if-branch" title="else path not taken" >E</span>if(invoked === -1) {
+                regConfigs.push(moduleName + '-' + fct);
+              }
+              if(angular.isDefined(provider)) {
+                provider[args[1]].apply(provider, args[2]);
+              }
+            }
+          }
+          if(angular.isFunction(args[2][0])) {
+            callInvoke(args[2][0]);
+          } else <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isArray(args[2][0])) {
+            for(var j = 0, jlen = args[2][0].length; j &lt; jlen; j++) {
+              if(angular.isFunction(args[2][0][j])) {
+                callInvoke(args[2][0][j]);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+&nbsp;
+  /**
+   * Register a new module and load it
+   * @param providers
+   * @param registerModules
+   * @returns {*}
+   */
+  function register(providers, registerModules, params) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(registerModules) {
+      var k, r, moduleName, moduleFn, tempRunBlocks = [];
+      for(k = registerModules.length - 1; k &gt;= 0; k--) {
+        moduleName = registerModules[k];
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(typeof moduleName !== 'string') {
+<span class="cstat-no" title="statement not covered" >          moduleName = getModuleName(moduleName);</span>
+        }
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(!moduleName || justLoaded.indexOf(moduleName) !== -1) {
+<span class="cstat-no" title="statement not covered" >          continue;</span>
+        }
+        var newModule = regModules.indexOf(moduleName) === -1;
+        moduleFn = angular.module(moduleName);
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(newModule) { // new module
+          regModules.push(moduleName);
+          register(providers, moduleFn.requires, params);
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(moduleFn._runBlocks.length &gt; 0) {
+          // new run blocks detected! Replace the old ones (if existing)
+          runBlocks[moduleName] = [];
+          while(moduleFn._runBlocks.length &gt; 0) {
+            runBlocks[moduleName].push(moduleFn._runBlocks.shift());
+          }
+        }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isDefined(runBlocks[moduleName]) &amp;&amp; (newModule || <span class="branch-2 cbranch-no" title="branch not covered" >params.rerun)</span>) {
+          tempRunBlocks = tempRunBlocks.concat(runBlocks[moduleName]);
+        }
+        invokeQueue(providers, moduleFn._invokeQueue, moduleName, params.reconfig);
+        invokeQueue(providers, moduleFn._configBlocks, moduleName, params.reconfig); // angular 1.3+
+        broadcast(newModule ? 'ocLazyLoad.moduleLoaded' : <span class="branch-1 cbranch-no" title="branch not covered" >'ocLazyLoad.moduleReloaded',</span> moduleName);
+        registerModules.pop();
+        justLoaded.push(moduleName);
+      }
+      // execute the run blocks at the end
+      var instanceInjector = providers.getInstanceInjector();
+      angular.forEach(tempRunBlocks, function(fn) {
+        instanceInjector.invoke(fn);
+      });
+    }
+  }
+&nbsp;
+  /**
+   * Register an invoke
+   * @param args
+   * @returns {*}
+   */
+  function registerInvokeList(args, moduleName) {
+    var invokeList = args[2][0],
+      type = args[1],
+      newInvoke = false;
+    if(angular.isUndefined(regInvokes[moduleName])) {
+      regInvokes[moduleName] = {};
+    }
+    if(angular.isUndefined(regInvokes[moduleName][type])) {
+      regInvokes[moduleName][type] = [];
+    }
+    var onInvoke = function(invokeName) {
+      newInvoke = true;
+      regInvokes[moduleName][type].push(invokeName);
+      broadcast('ocLazyLoad.componentLoaded', [moduleName, type, invokeName]);
+    }
+    if(angular.isString(invokeList) &amp;&amp; regInvokes[moduleName][type].indexOf(invokeList) === -1) {
+      onInvoke(invokeList);
+    } else if(angular.isObject(invokeList)) {
+      angular.forEach(invokeList, function(invoke) {
+        if(angular.isString(invoke) &amp;&amp; regInvokes[moduleName][type].indexOf(invoke) === -1) {
+          onInvoke(invoke);
+        }
+      });
+    } else {
+      return false;
+    }
+    return newInvoke;
+  }
+&nbsp;
+  function getModuleName(module) {
+    var moduleName = null;
+    if(angular.isString(module)) {
+      moduleName = module;
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if(angular.isObject(module) &amp;&amp; module.hasOwnProperty('name') &amp;&amp; angular.isString(module.name)) {
+      moduleName = module.name;
+    }
+    return moduleName;
+  }
+&nbsp;
+  /**
+   * Get the list of existing registered modules
+   * @param element
+   */
+  function init(element) {
+    var elements = [element],
+      appElement,
+      moduleName,
+      names = ['ng:app', 'ng-app', 'x-ng-app', 'data-ng-app'],
+      NG_APP_CLASS_REGEXP = /\sng[:\-]app(:\s*([\w\d_]+);?)?\s/;
+&nbsp;
+    function append(elm) {
+      return (elm &amp;&amp; elements.push(elm));
+    }
+&nbsp;
+    angular.forEach(names, function(name) {
+      names[name] = true;
+      append(document.getElementById(name));
+      name = name.replace(':', '\\:');
+      <span class="missing-if-branch" title="else path not taken" >E</span>if(element[0].querySelectorAll) {
+        angular.forEach(element[0].querySelectorAll('.' + name), append);
+        angular.forEach(element[0].querySelectorAll('.' + name + '\\:'), append);
+        angular.forEach(element[0].querySelectorAll('[' + name + ']'), append);
+      }
+    });
+&nbsp;
+    //TODO: search the script tags for angular.bootstrap
+    angular.forEach(elements, function(elm) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if(!appElement) {
+        var className = ' ' + element.className + ' ';
+        var match = NG_APP_CLASS_REGEXP.exec(className);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(match) {
+<span class="cstat-no" title="statement not covered" >          appElement = elm;</span>
+<span class="cstat-no" title="statement not covered" >          moduleName = (match[2] || '').replace(/\s+/g, ',');</span>
+        } else {
+          angular.forEach(elm.attributes, function(attr) {
+            if(!appElement &amp;&amp; names[attr.name]) {
+              appElement = elm;
+              moduleName = attr.value;
+            }
+          });
+        }
+      }
+    });
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if(appElement) {
+      (function addReg(moduleName) {
+        if(regModules.indexOf(moduleName) === -1) {
+          // register existing modules
+          regModules.push(moduleName);
+          var mainModule = angular.module(moduleName);
+&nbsp;
+          // register existing components (directives, services, ...)
+          invokeQueue(null, mainModule._invokeQueue, moduleName);
+          invokeQueue(null, mainModule._configBlocks, moduleName); // angular 1.3+
+&nbsp;
+          angular.forEach(mainModule.requires, addReg);
+        }
+      })(moduleName);
+    }
+  }
+&nbsp;
+  // Array.indexOf polyfill for IE8
+  <span class="missing-if-branch" title="if path not taken" >I</span>if(!Array.prototype.indexOf) {
+<span class="cstat-no" title="statement not covered" >    Array.prototype.indexOf = <span class="fstat-no" title="function not covered" >function(searchElement, fromIndex) {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var k;</span>
+&nbsp;
+      // 1. Let O be the result of calling ToObject passing
+      //    the this value as the argument.
+<span class="cstat-no" title="statement not covered" >      if(this == null) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new TypeError('"this" is null or not defined');</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      var O = Object(this);</span>
+&nbsp;
+      // 2. Let lenValue be the result of calling the Get
+      //    internal method of O with the argument "length".
+      // 3. Let len be ToUint32(lenValue).
+<span class="cstat-no" title="statement not covered" >      var len = O.length &gt;&gt;&gt; 0;</span>
+&nbsp;
+      // 4. If len is 0, return -1.
+<span class="cstat-no" title="statement not covered" >      if(len === 0) {</span>
+<span class="cstat-no" title="statement not covered" >        return -1;</span>
+      }
+&nbsp;
+      // 5. If argument fromIndex was passed let n be
+      //    ToInteger(fromIndex); else let n be 0.
+<span class="cstat-no" title="statement not covered" >      var n = +fromIndex || 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if(Math.abs(n) === Infinity) {</span>
+<span class="cstat-no" title="statement not covered" >        n = 0;</span>
+      }
+&nbsp;
+      // 6. If n &gt;= len, return -1.
+<span class="cstat-no" title="statement not covered" >      if(n &gt;= len) {</span>
+<span class="cstat-no" title="statement not covered" >        return -1;</span>
+      }
+&nbsp;
+      // 7. If n &gt;= 0, then Let k be n.
+      // 8. Else, n&lt;0, Let k be len - abs(n).
+      //    If k is less than 0, then let k be 0.
+<span class="cstat-no" title="statement not covered" >      k = Math.max(n &gt;= 0 ? n : len - Math.abs(n), 0);</span>
+&nbsp;
+      // 9. Repeat, while k &lt; len
+<span class="cstat-no" title="statement not covered" >      while(k &lt; len) {</span>
+        // a. Let Pk be ToString(k).
+        //   This is implicit for LHS operands of the in operator
+        // b. Let kPresent be the result of calling the
+        //    HasProperty internal method of O with argument Pk.
+        //   This step can be combined with c
+        // c. If kPresent is true, then
+        //    i.  Let elementK be the result of calling the Get
+        //        internal method of O with the argument ToString(k).
+        //   ii.  Let same be the result of applying the
+        //        Strict Equality Comparison Algorithm to
+        //        searchElement and elementK.
+        //  iii.  If same is true, return k.
+<span class="cstat-no" title="statement not covered" >        if(k in O &amp;&amp; O[k] === searchElement) {</span>
+<span class="cstat-no" title="statement not covered" >          return k;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        k++;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return -1;</span>
+    };
+  }
+})();
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Nov 20 2014 22:33:02 GMT+0100 (Paris, Madrid)</div>
+</div>
+
+<script src="../prettify.js"></script>
+
+<script src="https://yui-s.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+<script>
+
+    YUI().use('datatable', function (Y) {
+
+        var formatters = {
+          pct: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              try {
+                  return o.value.toFixed(2) + '%';
+              } catch (ex) { return o.value + '%'; }
+          },
+          html: function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.record.get(o.column.key + '_html');
+          }
+        },
+          defaultFormatter = function (o) {
+              o.className += o.record.get('classes')[o.column.key];
+              return o.value;
+          };
+
+        function getColumns(theadNode) {
+            var colNodes = theadNode.all('tr th'),
+                cols = [],
+                col;
+            colNodes.each(function (colNode) {
+                col = {
+                    key: colNode.getAttribute('data-col'),
+                    label: colNode.get('innerHTML') || ' ',
+                    sortable: !colNode.getAttribute('data-nosort'),
+                    className: colNode.getAttribute('class'),
+                    type: colNode.getAttribute('data-type'),
+                    allowHTML: colNode.getAttribute('data-html') === 'true' || colNode.getAttribute('data-fmt') === 'html'
+                };
+                col.formatter = formatters[colNode.getAttribute('data-fmt')] || defaultFormatter;
+                cols.push(col);
+            });
+            return cols;
+        }
+
+        function getRowData(trNode, cols) {
+            var tdNodes = trNode.all('td'),
+                    i,
+                    row = { classes: {} },
+                    node,
+                    name;
+            for (i = 0; i < cols.length; i += 1) {
+                name = cols[i].key;
+                node = tdNodes.item(i);
+                row[name] = node.getAttribute('data-value') || node.get('innerHTML');
+                row[name + '_html'] = node.get('innerHTML');
+                row.classes[name] = node.getAttribute('class');
+                //Y.log('Name: ' + name + '; Value: ' + row[name]);
+                if (cols[i].type === 'number') { row[name] = row[name] * 1; }
+            }
+            //Y.log(row);
+            return row;
+        }
+
+        function getData(tbodyNode, cols) {
+            var data = [];
+            tbodyNode.all('tr').each(function (trNode) {
+                data.push(getRowData(trNode, cols));
+            });
+            return data;
+        }
+
+        function replaceTable(node) {
+            if (!node) { return; }
+            var cols = getColumns(node.one('thead')),
+                data = getData(node.one('tbody'), cols),
+                table,
+                parent = node.get('parentNode');
+
+            table = new Y.DataTable({
+                columns: cols,
+                data: data,
+                sortBy: 'file'
+            });
+            parent.set('innerHTML', '');
+            table.render(parent);
+        }
+
+        Y.on('domready', function () {
+            replaceTable(Y.one('div.coverage-summary table'));
+            if (typeof prettyPrint === 'function') {
+                prettyPrint();
+            }
+        });
+    });
+</script>
+</body>
+</html>

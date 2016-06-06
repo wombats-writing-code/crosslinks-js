@@ -1,0 +1,13 @@
+<topic-tab></topic-tab>
+
+<div class="row">
+	<loading-text ng-show="isLoading"></loading-text>
+	<p class="columns " ng-show="!hasEdits">No edits have been recorded for this topic.</p>
+</div>
+
+<ol class="">
+	<li ng-repeat="entry in ::currentTopic.history | orderBy:'timestamp':true ">
+		<log-entry entry="entry"></log-entry>
+	</li>
+</ol>
+

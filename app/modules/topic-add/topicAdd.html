@@ -1,0 +1,7 @@
+<h4 class="heading--bordered">Add a New Topic</h4>
+
+<login-prompt user="currentUser">
+	<span>To create a new topic, you need to first login (must have MIT Kerberos).</span>
+</login-prompt>
+
+<topic-form-add class="" ng-if="currentUser.isLoggedIn" subjects="subjects" form-topic="newTopic" save-fn="saveTopic(topic)"></topic-form-add>

@@ -1,0 +1,5 @@
+
+<div class="link-with-favicon references__reference" ng-repeat="member in reference" ng-if="member.displayName">
+	<img class="link-with-favicon__favicon" ng-src="https://res.cloudinary.com/crosslinks/image/upload/{{member.icon}}.png">
+	<a class="link-with-favicon__link" target="_blank" ng-href="{{member.url}}" ng-bind="member.displayName"></a>
+</div>

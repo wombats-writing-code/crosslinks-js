@@ -1,0 +1,13 @@
+@import '../../../common/styles/variables.scss';
+
+.toggle-switch__button {
+        cursor: pointer;
+        color: $mit-red;
+}
+
+.toggle-switch__button:hover {
+        cursor: pointer;
+        color: $mit-red--secondary;
+        text-decoration: underline;
+}
+

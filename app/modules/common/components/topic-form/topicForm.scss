@@ -1,0 +1,72 @@
+@import '../../styles/variables.scss';
+
+// topic-form stuff
+.topic-form__edit-description {
+	white-space: pre-wrap;
+}
+
+.topic-form__add-topic, .topic-form__add-subject {
+	list-style: none;
+}
+
+.topic-form .five-section-heading__heading {
+        color: $muted;
+}
+
+.topic-form__edit-references, .subjects-edit, .prepare-edit, .learn-edit, .relate-edit, .apply-edit {
+        padding-left: 0;
+        margin-bottom: 3em;
+}
+
+.reference__icon {
+	width: 20px;
+	height: 20px;
+}
+
+.input-with-affordance {
+	align-items: flex-start;
+	-webkit-align-items: flex-start;
+}
+
+.input-with-affordance__affordance {
+        flex-shrink: 0;
+        -webkit-flex-shrink: 0;
+        margin-top: .33em;
+}
+
+.input-with-affordance.aligned .input-with-affordance__affordance {
+	margin-top: 0;
+}
+
+.input-with-affordance__input {
+	flex-grow: 1;
+	-webkit-flex-grow: 1;
+}
+
+.input-with-affordance__affordance.favicon {
+	height: 1.5em;
+	margin-right: .4em;
+}
+
+.input-with-affordance__affordance.delete {
+	text-align: center;
+	width: 44px;
+	font-size: 1.5em;
+	color: $mit-red;
+	cursor: pointer;
+}
+
+.input-with-affordance__affordance.delete:hover {
+	color: $mit-red--secondary;
+}
+
+.input-with-affordance__affordance.add {
+	width: 44px;	
+	padding-top: .23em;
+	color: $mit-red;
+	cursor: pointer;
+}
+
+.input-with-affordance__affordance.add:hover {
+	color: $mit-red--secondary;
+}

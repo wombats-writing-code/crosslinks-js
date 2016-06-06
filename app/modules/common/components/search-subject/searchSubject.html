@@ -1,0 +1,9 @@
+
+<div class="search-subject-wrapper">
+	<input class="input search-subject__input" ng-model="searchQuery" ng-change="search(subjects, searchQuery);" placeholder="{{inputPlaceholder}}" stop-event> 
+	<ul class="search-subject__dropdown" ng-show="searchQuery.length > 0">
+		<li class="search-subject__dropdown-item clearfix" ng-repeat="result in searchResults" ng-click="selectItem(result);">
+			<p class="search-subject__dropdown-item__title small-12 columns"> <span ng-bind="result.displayName || result.name"></span><span ng-bind="': ' + result.number || result.description"></span></span> </p>
+		</li>
+	</ul>
+</div>

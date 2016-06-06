@@ -1,0 +1,20 @@
+
+<div class="navigation clearfix">	
+	<a ui-sref="main"><img class="nav__crosslinks-logo" src="https://res.cloudinary.com/crosslinks/image/upload/crosslinks_logo.v2.png" alt="crosslinks logo"></a>
+	<button class="button button--flat nav__menu-button" ng-click="isNavigationVisible = !isNavigationVisible">Menu</button>
+
+	<section class="nav__wrapper" ng-class="{'js-invisible': !isNavigationVisible}">
+		<ul class="nav-links" ng-click="isNavigationVisible = false">
+			<li class="nav-links__item"><a class="nav-link" ui-sref="main" ui-sref-active="js-selected">Main Page</a></li>
+			<li class="nav-links__item"><a class="nav-link" ui-sref="topic-list" ui-sref-active="js-selected">All Topics</a></li>
+			<li class="nav-links__item"><a class="nav-link" ui-sref="edit-list" ui-sref-active="js-selected">All Edits</a></li>
+			<li class="nav-links__item"><a class="nav-link" ui-sref="topic-add" ui-sref-active="js-selected">Add a Topic</a></li>
+
+			<li class="nav-links__item"><a class="nav-link" ui-sref="about" ui-sref-active="js-selected">About Crosslinks</a></li>
+			<li class="nav-links__item"><a class="nav-link" ui-sref="team" ui-sref-active="js-selected">Team</a></li>
+			<li class="nav-links__item"><a class="nav-link" ui-sref="faqs" ui-sref-active="js-selected">FAQs</a></li>
+		</ul>
+		<search-topic class="margin--bottom search-select" topics="topics" input-placeholder="Search topics" upon-select="go(topic)"></search-topic>
+		<login class="columns" user="currentUser"></login>
+	</section>
+</div>

@@ -1,0 +1,53 @@
+<section class="main">
+	<div class="row main__hero">
+		<div class="small-12 medium-6 large-8 columns greeting-wrapper">
+			<div class="greeting-logo"></div>
+			<h1 class="greeting"> <span class="crosslinks-name">MIT Crosslinks</span></h1>
+			<p class="tagline">
+				The MIT study site.<br>
+				Authored by MIT students, for MIT students.
+			</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<p class="main__lead">Trying to figure something out? MIT students help you out: </p>
+			<ul class="main__lead-list flex-container">
+				<li class="main__lead-list__item"><a ui-sref="topic-list({query: 'subject18.01'})">18.01</a></li>
+				<li class="main__lead-list__item"><a ui-sref="topic-list({query: 'subject18.02'})">18.02</a></li>
+				<li class="main__lead-list__item"><a ui-sref="topic-list({query: 'subject18.03'})">18.03</a></li>
+				<li class="main__lead-list__item"><a ui-sref="topic-list({query: 'subject8.01'})">8.01</a></li>
+				<li class="main__lead-list__item"><a ui-sref="topic-list({query: 'subject7.013'})">7.01</a></li>
+				<li class="main__lead-list__item"><a ui-sref="topic-list({query: 'subject6.01'})">6.01</a></li>
+				<li class="main__lead-list__item"><a ui-sref="topic-list">and more...</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<global-vis class="" on-hover="currentTopic" nodes="nodes" edges="links"></global-vis>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 medium-7 columns">
+			<div class="main__box">
+				<h6 class="heading--bordered">News Bulletin</h6>
+				<p>
+					News here.
+				</p>
+			</div>
+		</div>
+		<div class="small-12 medium-5 columns">
+				<div class="main__box">
+					<h6 class="heading--bordered">Recently Edited Topics</h6>
+					<loading-text ng-show="!isHistoryLoaded"></loading-text>
+					<ul class="recent-edit-list">
+						<li ng-repeat="entry in ::recentEdits | limitTo: 4"><log-info entry="entry"></log-info></li>
+					</ul>
+				</div>
+		</div>
+	</div>
+</section>

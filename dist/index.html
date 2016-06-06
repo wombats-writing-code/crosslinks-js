@@ -1,0 +1,61 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta name="google-site-verification" content="9CxHbWFexfmNZ24xqJPBko7esRrA7JT3t1_7OOdi-IU" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Crosslinks: Open educational resources (OER) browser</title>
+
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+	</head>
+
+	<body ng-app="crosslinks3App">
+	<!--[if lt IE 7]>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div class="page-body">
+		<navigation></navigation>
+
+		<div class="main-pane">
+			<div class="" ui-view></div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="small-12 medium-1 columns">
+			<img alt="MIT" class="mit-logo" ng-src="https://res.cloudinary.com/crosslinks/image/upload/MIT_logo.png">
+		</div>
+		<div class="small-12 medium-11 columns">
+			<p class="small">Crosslinks is the open-source, community-edited site for linking topics and study resources.</p>
+		</div>
+	</footer>
+
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+				inlineMath: [ ['$','$'], ["\\(","\\)"], ['[mathjaxinline]', '[/mathjaxinline]'] ],
+				displayMath: [ ['$$','$$'], [ "\\[", "\\]"], ['[mathjax]', '[/mathjax]'] ],
+			},
+			"HTML-CSS": {
+				linebreaks: { automatic: true, width: "container" }
+			}
+		});
+	</script>
+	<script async type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+	<!-- build:js -->
+        <script inline src="/vendor.js"></script>
+        <script inline src="/bundle.js"></script>
+	<!-- endbuild -->
+
+
+    <!--[if lt IE 9]>
+    <script src="/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="/bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+</body>
+</html>

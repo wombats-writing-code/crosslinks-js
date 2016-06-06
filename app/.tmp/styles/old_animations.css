@@ -1,0 +1,144 @@
+/* line 5, ../../styles/old_animations.scss */
+.animation--flicker {
+  color: #c03c50;
+  animation: flicker 1.5s infinite;
+}
+
+@-webkit-keyframes flicker {
+  /* line 11, ../../styles/old_animations.scss */
+  0% {
+    opacity: .3;
+  }
+
+  /* line 14, ../../styles/old_animations.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+/* line 21, ../../styles/old_animations.scss */
+.js-animation--glow {
+  background-color: rgba(192, 60, 80, 0.5);
+}
+
+/* line 25, ../../styles/old_animations.scss */
+.animation--glow {
+  background-color: default;
+}
+
+/* line 29, ../../styles/old_animations.scss */
+.animation--glow.ng-enter {
+  transition: background-color 1s ease-in-out;
+  background-color: #f2f0e6;
+}
+
+/* line 38, ../../styles/old_animations.scss */
+.animation--fade.ng-hide-remove {
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
+  display: block !important;
+}
+
+/* line 44, ../../styles/old_animations.scss */
+.animation--fade.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+
+/* line 48, ../../styles/old_animations.scss */
+.animation--fade.ng-hide-add {
+  transition: opacity .3s ease-in-out;
+  opacity: 1;
+  display: block !important;
+}
+
+/* line 54, ../../styles/old_animations.scss */
+.animation--fade.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+}
+
+/* line 60, ../../styles/old_animations.scss */
+.animation--slide-right.ng-hide-remove, .animation--slide-right.ng-enter {
+  animation: slide-right--enter .2s ease-in-out;
+  opacity: 1;
+}
+
+/* line 66, ../../styles/old_animations.scss */
+.animation--slide-right.ng-hide-add, .animation--slide-right.ng-leave {
+  animation: slide-right--exit .2s ease-in-out;
+  opacity: 1;
+}
+
+@-webkit-keyframes slide-right--enter {
+  /* line 73, ../../styles/old_animations.scss */
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+
+  /* line 77, ../../styles/old_animations.scss */
+  70% {
+    opacity: 1;
+  }
+
+  /* line 80, ../../styles/old_animations.scss */
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-right--exit {
+  /* line 87, ../../styles/old_animations.scss */
+  30% {
+    opacity: 1;
+  }
+
+  /* line 90, ../../styles/old_animations.scss */
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* line 99, ../../styles/old_animations.scss */
+.animation--slide-left.ng-hide-remove, .animation--slide-left.ng-enter {
+  animation: slide-left--enter .3s ease-in-out;
+  opacity: 1;
+}
+
+/* line 105, ../../styles/old_animations.scss */
+.animation--slide-left.ng-hide-add, .animation--slide-left.ng-enter {
+  animation: slide-left--exit .3s ease-in-out;
+  opacity: 1;
+}
+
+@-webkit-keyframes slide-left--enter {
+  /* line 112, ../../styles/old_animations.scss */
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+
+  /* line 116, ../../styles/old_animations.scss */
+  70% {
+    opacity: 1;
+  }
+
+  /* line 119, ../../styles/old_animations.scss */
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@-webkit-keyframes slide-left--exit {
+  /* line 125, ../../styles/old_animations.scss */
+  30% {
+    opacity: 1;
+  }
+
+  /* line 128, ../../styles/old_animations.scss */
+  100% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}

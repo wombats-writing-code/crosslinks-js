@@ -1,0 +1,59 @@
+@import '../../../common/styles/variables.scss';
+
+// search-subject
+
+.search-subject-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.search-subject__input {
+	background-image: url('/images/search--dark.png');
+	background-position: 0 50%;
+	padding-left: 2em;
+	background-size: 1em;
+	background-repeat: no-repeat;
+}
+
+.search-subject__dropdown {
+	position: absolute;
+        border: 1px solid #cacbcc;
+        box-shadow: 0px 1px 1px rgba(#cacacb, .8);
+	list-style: none;
+	padding-left: 0;
+	width: 100%;
+	z-index: 1;
+	
+	@media all and (max-width: $breakpoint--small) {
+//		min-width: 17em;
+//		max-width: 17em;
+	}
+	@media all and (min-width: $breakpoint--medium) {
+//		min-width: 38em;
+	}
+}
+
+.search-subject__dropdown-item {
+	cursor: pointer;
+	width: 100%;
+	padding-top: .75em;
+	padding-bottom: .75em;
+	background: $background-primary;
+	z-index: 1;
+}
+
+.search-subject__dropdown-item:hover,  .search-subject__dropdown-item.js-on-hover {
+	background-color: $background-secondary;
+}
+
+.search-subject__dropdown-item__title {
+	color: $mit-red;
+	height: 100%;
+	margin-bottom: 0;
+}
+
+.search-subject__dropdown-item__description {
+	height: 100%;
+	margin-bottom: 0;
+}
+

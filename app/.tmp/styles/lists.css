@@ -1,0 +1,360 @@
+/* line 13, ../../styles/typography.scss */
+html {
+  font-size: 87.5%;
+}
+
+/* line 17, ../../styles/typography.scss */
+body {
+  color: #3f474e;
+  font-size: 1rem;
+  font-family: "ff-dagny-web-pro";
+  text-rendering: optimizeLegibility;
+}
+
+/* line 24, ../../styles/typography.scss */
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 400;
+  font-family: "ff-dagny-web-pro";
+}
+
+/* line 31, ../../styles/typography.scss */
+p, label, .normal, .p {
+  font-size: 1rem;
+  line-height: 1.5em;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* line 38, ../../styles/typography.scss */
+p.heading--bordered {
+  line-height: 1.43em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 43, ../../styles/typography.scss */
+.small {
+  font-size: 0.8125rem;
+  /* 13px */
+  line-height: 1.8462em;
+  /* 24px */
+  margin-bottom: 1.8462em;
+}
+
+/* line 50, ../../styles/typography.scss */
+.large {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 1.2000em;
+  margin-bottom: 1.2000em;
+}
+
+/* line 57, ../../styles/typography.scss */
+h6, .h6 {
+  font-size: 1.2500rem;
+  /* 20px */
+  line-height: 1.2000em;
+  /* 24px */
+  margin-top: 0;
+  margin-bottom: 1.2000em;
+}
+
+/* line 65, ../../styles/typography.scss */
+h6.heading--bordered {
+  line-height: 1.4em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 71, ../../styles/typography.scss */
+h6.heading--bordered.small {
+  line-height: 2.33em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 77, ../../styles/typography.scss */
+h5, .h5 {
+  font-size: 1.5625rem;
+  /* 25px */
+  line-height: 1.9200em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.9600em;
+}
+
+/* line 84, ../../styles/typography.scss */
+h4, .h4 {
+  font-size: 1.9375rem;
+  /* 31px */
+  line-height: 1.5484em;
+  /* 48px */
+  margin-top: 0;
+  margin-bottom: 0.7742em;
+}
+
+/* line 91, ../../styles/typography.scss */
+h4.heading--bordered {
+  line-height: 1.4784em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 96, ../../styles/typography.scss */
+h3, .h3 {
+  font-size: 2.4375rem;
+  /* 39px */
+  line-height: 1.2308em;
+  /* 48px */
+  margin-top: 0.6154em;
+  margin-bottom: 0.6154em;
+}
+
+/* line 103, ../../styles/typography.scss */
+h2, .h2 {
+  font-size: 3.0625rem;
+  /* 49px */
+  line-height: 1.4694em;
+  /* 72px */
+  margin-top: 0.4898em;
+  margin-bottom: 0.4898em;
+}
+
+/* line 110, ../../styles/typography.scss */
+h1 {
+  font-size: 3.8125rem;
+  /* 61px */
+  line-height: 1.1803em;
+  /* 72px */
+  margin-top: 0.3934em;
+  margin-bottom: 0.3934em;
+}
+
+/* line 118, ../../styles/typography.scss */
+ul, ol {
+  margin: 0;
+}
+
+/* line 131, ../../styles/typography.scss */
+a, .link {
+  cursor: pointer;
+  color: #a31f34;
+  text-decoration: none;
+  line-height: 1.3em;
+}
+
+/* line 139, ../../styles/typography.scss */
+a.small {
+  line-height: 1.2em;
+}
+
+/* line 143, ../../styles/typography.scss */
+a:hover, a:visited:hover {
+  color: #c03c50;
+  text-decoration: underline;
+}
+
+/* line 148, ../../styles/typography.scss */
+a:visited {
+  color: #811829;
+}
+
+/* line 152, ../../styles/typography.scss */
+a:focus {
+  outline: none;
+}
+
+/* line 156, ../../styles/typography.scss */
+i, .italic {
+  font-style: italic;
+}
+
+/* line 160, ../../styles/typography.scss */
+.muted {
+  color: #62717d;
+}
+
+/* line 164, ../../styles/typography.scss */
+.muted-tint-1 {
+  color: #85939f;
+}
+
+/* line 168, ../../styles/typography.scss */
+.emphasis {
+  color: #a31f34;
+  color: #8a8b8c;
+  color: #c03c50;
+}
+
+/* line 174, ../../styles/typography.scss */
+.warning {
+  color: #c03c50;
+}
+
+/* line 179, ../../styles/typography.scss */
+.bold, .warning {
+  font-weight: 600;
+}
+
+/* line 184, ../../styles/typography.scss */
+.text-left {
+  text-align: left;
+}
+
+/* line 188, ../../styles/typography.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 192, ../../styles/typography.scss */
+.text-center {
+  text-align: center;
+}
+
+/* line 197, ../../styles/typography.scss */
+.five-section-heading {
+  margin-bottom: 1.100em;
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecee;
+}
+
+/* line 203, ../../styles/typography.scss */
+.five-section-heading__heading {
+  margin-bottom: 0;
+}
+
+/* line 4, ../../styles/lists.scss */
+.list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* line 9, ../../styles/lists.scss */
+.list.list--numbered {
+  list-style: default;
+  list-style-type: decimal;
+}
+
+/* line 14, ../../styles/lists.scss */
+.list-item {
+  margin-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* line 20, ../../styles/lists.scss */
+.list--single-line .list-item.has-button {
+  margin-bottom: .78em;
+}
+
+/* line 24, ../../styles/lists.scss */
+.list--single-line .list-item.has-favicon {
+  margin-bottom: 1.4em;
+}
+
+/* line 28, ../../styles/lists.scss */
+.list--single-line .list-item--small.has-favicon {
+  margin-bottom: .91em;
+}
+
+/* line 32, ../../styles/lists.scss */
+.list--single-line .list-item.has-tag {
+  margin-bottom: 1.5em;
+}
+
+/* line 36, ../../styles/lists.scss */
+.has-left-avatar, .has-right-avatar {
+  display: flex;
+  align-items: baseline;
+}
+
+/* line 41, ../../styles/lists.scss */
+.has-left-avatar .icon--search {
+  align-self: center;
+}
+
+/* line 45, ../../styles/lists.scss */
+.has-right-avatar .list-item__avatar {
+  margin: 0 0 0 1em;
+}
+
+/* line 49, ../../styles/lists.scss */
+.has-left-avatar .list-item__avatar {
+  flex: 0;
+  min-width: 1.5rem;
+  min-height: 1.5em;
+  margin: 0 1em 0 0;
+}
+
+/* line 56, ../../styles/lists.scss */
+.list-item__avatar .favicon {
+  width: 1.4em;
+}
+
+/* line 60, ../../styles/lists.scss */
+.has-left-avatar .list-item__avatar.align-with-button {
+  min-width: 33px;
+}
+
+/* line 64, ../../styles/lists.scss */
+.list--single-line .list-item__text {
+  margin-bottom: 0;
+}
+
+/* line 68, ../../styles/lists.scss */
+.list--double-line .list-item {
+  margin-bottom: 1.28em;
+}
+
+/* line 72, ../../styles/lists.scss */
+.list-item__double-line-wrapper {
+  width: 100%;
+}
+
+/* line 76, ../../styles/lists.scss */
+.list--tags {
+  display: flex;
+}
+
+/* line 80, ../../styles/lists.scss */
+.list-item--tag {
+  background: #f2f0e6;
+  color: #3f474e;
+  margin-right: .3em;
+  padding-right: .3em;
+  padding-left: .3em;
+  margin-bottom: 0;
+}
+
+/* line 89, ../../styles/lists.scss */
+.list .list-item--tag {
+  margin-bottom: 0;
+}
+
+/* line 93, ../../styles/lists.scss */
+.list-item--nav-link {
+  margin-bottom: 1.5em;
+}
+
+/* line 97, ../../styles/lists.scss */
+.comma-separated {
+  display: inline-block;
+  margin-right: .2em;
+}
+
+/* line 102, ../../styles/lists.scss */
+.has-parentheses.comma-separated:first-child::before {
+  content: '(';
+  color: #62717d;
+}
+
+/* line 107, ../../styles/lists.scss */
+.has-parentheses.comma-separated:last-child::after {
+  content: ')';
+  color: #62717d;
+}
+
+/* line 112, ../../styles/lists.scss */
+.comma-separated:not(.is-last)::after {
+  content: ',';
+  color: #62717d;
+}

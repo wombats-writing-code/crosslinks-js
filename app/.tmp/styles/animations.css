@@ -1,0 +1,276 @@
+/* line 4, ../../styles/animations.scss */
+.animation--pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@-webkit-keyframes pulse {
+  /* line 9, ../../styles/animations.scss */
+  0% {
+    opacity: .5;
+  }
+
+  /* line 12, ../../styles/animations.scss */
+  100% {
+    opacity: .9;
+  }
+}
+
+@-moz-keyframes pulse {
+  /* line 18, ../../styles/animations.scss */
+  0% {
+    opacity: .5;
+  }
+
+  /* line 21, ../../styles/animations.scss */
+  100% {
+    opacity: .9;
+  }
+}
+
+/* line 26, ../../styles/animations.scss */
+.animation--pulse.ng-hide-add-active {
+  display: none !important;
+  transition: none;
+}
+
+/* line 33, ../../styles/animations.scss */
+.animation--fade.ng-hide-remove {
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
+  display: block !important;
+}
+
+/* line 39, ../../styles/animations.scss */
+.animation--fade.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+}
+
+/* line 43, ../../styles/animations.scss */
+.animation--fade.ng-hide-add {
+  transition: opacity .3s ease-in-out;
+  opacity: 1;
+  display: block !important;
+}
+
+/* line 49, ../../styles/animations.scss */
+.animation--fade.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
+}
+
+/* line 54, ../../styles/animations.scss */
+.animation--enter-from-bottom.ng-hide-remove, .animation--enter-from-bottom.ng-enter {
+  animation: enter-from-bottom .3s ease-in-out;
+  opacity: 1;
+}
+
+@-webkit-keyframes enter-from-bottom {
+  /* line 60, ../../styles/animations.scss */
+  0% {
+    transform: translateY(3em);
+    opacity: 0;
+  }
+
+  /* line 64, ../../styles/animations.scss */
+  80% {
+    opacity: 1;
+  }
+
+  /* line 67, ../../styles/animations.scss */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@-moz-keyframes enter-from-bottom {
+  /* line 73, ../../styles/animations.scss */
+  0% {
+    transform: translateY(3em);
+    opacity: 0;
+  }
+
+  /* line 77, ../../styles/animations.scss */
+  80% {
+    opacity: 1;
+  }
+
+  /* line 80, ../../styles/animations.scss */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* line 86, ../../styles/animations.scss */
+.animation--exit-to-left.ng-hide-add, .animation--exit-to-left.ng-leave {
+  animation: exit-to-left .3s ease-in-out;
+  opacity: 1;
+}
+
+@-webkit-keyframes exit-to-left {
+  /* line 92, ../../styles/animations.scss */
+  35% {
+    opacity: 1;
+  }
+
+  /* line 95, ../../styles/animations.scss */
+  100% {
+    transform: translateX(-70px);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes exit-to-left {
+  /* line 102, ../../styles/animations.scss */
+  35% {
+    opacity: 1;
+  }
+
+  /* line 105, ../../styles/animations.scss */
+  100% {
+    transform: translateX(-70px);
+    opacity: 0;
+  }
+}
+
+/* line 112, ../../styles/animations.scss */
+.animation--enter-from-right.ng-hide-remove, .animation--enter-from-right.ng-enter {
+  animation: enter-from-right 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@-webkit-keyframes enter-from-right {
+  /* line 118, ../../styles/animations.scss */
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  /* line 122, ../../styles/animations.scss */
+  80% {
+    opacity: 1;
+  }
+
+  /* line 125, ../../styles/animations.scss */
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@-moz-keyframes enter-from-right {
+  /* line 131, ../../styles/animations.scss */
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  /* line 135, ../../styles/animations.scss */
+  80% {
+    opacity: 1;
+  }
+
+  /* line 138, ../../styles/animations.scss */
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+/* line 144, ../../styles/animations.scss */
+.animation--exit-to-right.ng-hide-add, .animation--exit-to-right.ng-leave {
+  animation: exit-to-right 0.3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+@-webkit-keyframes exit-to-right {
+  /* line 149, ../../styles/animations.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 152, ../../styles/animations.scss */
+  100% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes exit-to-right {
+  /* line 159, ../../styles/animations.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 162, ../../styles/animations.scss */
+  100% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+}
+
+/* line 169, ../../styles/animations.scss */
+.animation--enter-from-top.ng-hide-remove, .animation--enter-from-top.ng-enter {
+  animation: enter-from-top .3s ease-in-out;
+}
+
+@-webkit-keyframes enter-from-top {
+  /* line 174, ../../styles/animations.scss */
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  /* line 178, ../../styles/animations.scss */
+  80% {
+    opacity: 1;
+  }
+
+  /* line 181, ../../styles/animations.scss */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@-moz-keyframes enter-from-top {
+  /* line 187, ../../styles/animations.scss */
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  /* line 191, ../../styles/animations.scss */
+  80% {
+    opacity: 1;
+  }
+
+  /* line 194, ../../styles/animations.scss */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* line 201, ../../styles/animations.scss */
+.animation--exit-to-top.ng-hide-add, .animation--exit-to-top.ng-leave {
+  animation: exit-to-top 0.3s cubic-bezier(0.895, 0.03, 0.685, 0.22);
+}
+
+@-webkit-keyframes exit-to-top {
+  /* line 206, ../../styles/animations.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 209, ../../styles/animations.scss */
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes exit-to-top {
+  /* line 216, ../../styles/animations.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 219, ../../styles/animations.scss */
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}

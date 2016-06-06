@@ -1,0 +1,28 @@
+@import '../common/styles/variables.scss';
+
+.core-team {
+	margin-bottom: 1.5em;
+}
+
+.team-member__picture {
+	width: 126px;
+	height: 126px;
+	max-width: 147px;
+	max-height: 147px;
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	display: block;
+	margin: 0 auto 1.5em auto;
+}
+
+.team-member__title {
+	color: #5a5b5c;
+	font-weight: 600;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.team-member__description {
+	color: #7a7b7c;
+	text-align: center;
+}

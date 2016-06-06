@@ -1,0 +1,10 @@
+
+<div ng-if="learn.length == 0" class="no-five-section-material">
+	<p class="small italic">No one has added any links to learning material (yet). </p>
+</div>
+<ul class="five-section-resource-list">
+	<li class="link-with-favicon" ng-repeat="resource in learn" ng-attr-data-id="{{resource.id}}">
+		<img class="link-with-favicon__favicon" ng-src="https://res.cloudinary.com/crosslinks/image/upload/{{resource.iconType}}.png" ng-alt="{{resource.iconType}}" />
+		<a class="link-with-favicon__link" target="_blank" ng-href="{{resource.url}}" ng-bind="resource.displayName"></a>
+	</li>
+</ul>

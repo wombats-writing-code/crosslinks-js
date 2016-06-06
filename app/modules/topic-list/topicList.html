@@ -1,0 +1,55 @@
+<section class="topic-list global-vis-wrapper-parent" scroll-to watch-scroll-to="stateParams.query">
+	<h4 class="bold heading--bordered">All Topics</h4>
+
+	<div class="columns" ng-show="isLoading">
+		<spinner></spinner>
+	</div>
+
+	<div class="global-vis-wrapper" live-scroll subjects="courseSubjects" nodes="nodes" current-focus="currentFocus" all-nodes="topics">
+		<p class="muted global-vis-title" ng-show="courseSubjects">
+			<span class="red-dot" ng-bind="currentFocus"></span> topics
+			<span class="gray-dot"> Other topics</span>
+		</p>
+		<global-vis ng-show="courseSubjects" class="global-vis-component" on-hover="currentTopic" nodes="nodes" edges="links" current-focus="currentFocus"></global-vis>
+	</div>
+
+	<div class="row controls" ng-show="!isLoading">
+		<div class="medium-12 columns">
+			<search-topic preview="partial" topics="topics" upon-select="goToTopic(topic)" input-placeholder="Search by topic, class or course, e.g. 'transform'"></search-topic>
+		</div>
+	</div>
+
+	<div class="row " ng-show="!isLoading">
+		<div class="columns">
+			<ul class="course-list clearfix">
+				<li class="course-list__item " ng-class="{'end': $last}" ng-repeat="subjectArray in courseSubjects track by $index"><a scroll-to click-scroll-to="course{{getCourseNumber($index)}}" ng-bind="'Course ' + getCourseNumber($index)"></a></li> 
+			</ul>
+		</div>
+
+		<div class="course-group" ng-repeat="subjectArray in courseSubjects track by $index">
+			<h5 id="course{{getCourseNumber($index)}}" class="heading--bordered">Course <span ng-bind="getCourseNumber($index)"></span></h5>
+
+			<div class="subject-group-wrapper">
+				<div class="subject-group clearfix" ng-repeat="subjectNumber in subjectArray">
+					<h6 id="subject{{subjectNumber}}" class="heading--bordered" ng-bind="subjectNumber"></h6>
+
+					<ul class="topics">
+						<li class="topic" ng-repeat="topic in subject_topics_map[subjectNumber]"> 
+							<a class="" ui-sref="topic-read({topicIdentifier: topic.getIdentifier()})" ng-bind="topic.displayName"></a> 
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="course-group" ng-show="!isLoading">
+			<h5 id="uncategorized" class="heading--bordered">Uncategorized</h5>
+			<ul class="topics">
+				<li class="topic" ng-repeat="topic in uncategorized"> 
+					<a class="" ui-sref="topic-read({topicIdentifier: topic.getIdentifier()})" ng-bind="topic.displayName"></a> 
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</section>

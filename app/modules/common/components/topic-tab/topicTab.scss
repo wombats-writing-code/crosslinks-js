@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+// topic-tab
+.tab-bar {
+	width: 100%;
+	margin-bottom: $base-leading;
+	border-bottom: 2px solid $mit-red;
+}
+
+a.tab-bar__tab {
+	position: relative;
+	margin: 0 .5em 7px 0;
+	padding: .8em .9375em .4em .9375em;
+	border-radius: 0;
+	color: rgba($bodytext-color, .5);
+
+	border-top: 2px solid $mit-red;
+	border-left: 2px solid $mit-red;
+	border-right: 2px solid $mit-red;
+	border-bottom: none;
+	border-color: rgba($mit-red, .1);
+
+	transition: all .3s ease;
+}
+
+a.tab-bar__tab:visited {
+	color: $bodytext-color;
+}
+
+.tab-bar__tab:hover {
+	opacity: 1;
+	color: $bodytext-color;
+}
+
+.tab-bar__tab.js-selected {
+	opacity: 1;
+	color: $bodytext-color;
+	border-color: $mit-red;
+}

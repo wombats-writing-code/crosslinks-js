@@ -1,0 +1,71 @@
+<topic-tab></topic-tab>
+
+<article class="">
+	<div class="row">
+		<h4 class="columns topic-title" ng-bind="currentTopic.displayName"></h4>
+	</div>
+	<div class="row">
+		<section class="small-12 medium-12 columns  margin--bottom">
+			<topic-description description="currentTopic.description"></topic-description>
+		</section>
+	</div>
+	<div class="row">
+		<section class="small-12 columns references margin--bottom">
+			<topic-reference reference="currentTopic.reference"></topic-reference>
+		</section>
+	</div>
+
+	<div class="row">
+		<section class="small-12 medium-6 columns ">
+			<topic-vis root="root" edges="links"></topic-vis>
+		</section>
+		<section class="small-12 medium-6 columns five-section">
+			<div class="five-section-heading clearfix">
+				<h6 class="five-section-heading__heading">Prepare</h6>
+				<explanation-block section="prepare"></explanation-block>
+			</div>
+			<loading-text ng-show="!isCriticalLoaded"></loading-text>
+			<topic-prepare ng-show="isCriticalLoaded" prepare="currentTopic.prepare"></topic-prepare>
+		</section>
+	</div>
+	<div class="row">
+		<section class="small-12 columns five-section">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Learn</h6>
+				<explanation-block section="learn"></explanation-block>
+			</div>
+			<loading-text ng-show="!isCriticalLoaded"></loading-text>
+			<topic-learn ng-show="isCriticalLoaded" learn="currentTopic.learn" analytics-event="learn" topic-id="{{currentTopic.id}}"></topic-learn>
+		</section>
+	</div>
+	<div class="row">
+		<section class="small-12 medium-6 columns five-section">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Relate</h6>
+				<explanation-block section="relate"></explanation-block>
+			</div>
+			<topic-relate relate="currentTopic.relate"></topic-relate>
+		</section>
+		<section class="small-12 medium-6 columns five-section">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Advance</h6>
+				<explanation-block section="advance"></explanation-block>
+			</div>
+			<topic-advance advance="currentTopic.advance"></topic-advance>
+		</section>
+	</div>
+
+	<div class="row">
+		<section class="small-12 columns five-section">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Apply</h6>
+				<explanation-block section="apply"></explanation-block>
+			</div>
+			<topic-apply apply="currentTopic.apply" analytics-event="apply" topic-id="{{currentTopic.id}}"></topic-apply>
+		</section>
+	</div>
+
+	<div class="row">
+		<topic-subject subject="currentTopic.subject" topic-name="currentTopic.displayName"></topic-subject>
+	</div>
+</article>

@@ -1,0 +1,185 @@
+<form class="topic-form topic-form--edit" stop-event>
+	<div class="row">
+		<div class="small-12 columns">
+			<input type="text" class="columns contenteditable h4 topic-title" ng-model="formTopic.displayName" ng-change="setFormChanged()" stop-event>
+		</div>
+	</div>
+
+	<div class="row">
+		<section class="small-12 medium-7 columns">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Description</h6>
+			</div>
+			<textarea auto-expand type="text" class="" ng-model="formTopic.description" ng-change="setFormChanged()"></textarea>
+		</section>
+		<section class="small-12 medium-5 columns description-preview">
+			<p class="muted italic">Preview</span> (here's a <a class="tooltip--what-is-this" target="_blank" href="http://www.personal.ceu.hu/tex/cookbook.html">LaTex cheat sheet</a>)</p>
+			<p class="topic-form__edit-description" ng-bind="formTopic.description" mathjax="formTopic.description"></p>	
+		</section>
+	</div>
+
+	<div class="row">
+		<ul class="topic-form__edit-references clearfix">
+			<li class="small-12 medium-6 columns input-with-affordance flex-container" ng-repeat="member in formTopic.reference | orderBy:'icon'">
+				<img class="input-with-affordance__affordance favicon" ng-src="https://res.cloudinary.com/crosslinks/image/upload/{{member.icon}}.png">
+				<div class="input-with-affordance__input">
+					<input class="contenteditable" type="text" ng-model="member.displayName" placeholder="{{member.icon + ' page name' }}" stop-event />
+					<input class="contenteditable" type="text" ng-model="member.url" placeholder="{{member.icon + ' URL' }}" stop-event />
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="row">
+		<section class="small-12 medium-6 columns">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Subjects</h6>
+			</div>
+			<ul class="subjects-edit">
+				<li class="input-with-affordance flex-container aligned animation--enter-from-bottom animation--exit-to-left" ng-repeat="subject in formTopic.subject">
+					<span class="input-with-affordance__affordance delete" ng-click="formTopic.remove('subject', subject); setFormChanged()">&cross;</span>
+					<p class="" ng-bind="subject.number"></p>
+				</li>
+				<li class="topic-form__add-subject">
+					<search-subject class="search-select" subjects="subjects" upon-select="addSubject(subject)" input-placeholder="Add subject from Crosslinks"></search-subject>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="row">
+		<section class="small-12 medium-6 columns form-section">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Prepare</h6>
+				<explanation-block class="" section="prepare"></explanation-block>
+			</div>
+
+			<ul class="prepare-edit">
+				<li class="input-with-affordance flex-container aligned animation--enter-from-bottom animation--exit-to-left" ng-repeat="topic in formTopic.prepare">
+					<span class="input-with-affordance__affordance delete " ng-click="formTopic.remove('prepare', topic); setFormChanged()">&cross;</span>
+					<p class="" ng-bind="topic.displayName"></p>
+				</li>
+				<li class="topic-form__add-topic">
+					<search-topic class="search-select" topics="topics" input-placeholder="Add topic from Crosslinks" upon-select="addPrepare(topic)"></search-topic> 
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns">
+			<div class="five-section-heading">
+				<h6 class="five-section-heading__heading">Learn</h6>
+				<explanation-block class="" section="learn">Link to a helpful PDF, video, etc.</explanation-block>
+			</div>
+			<ul class="learn-edit">
+				<li class="input-with-affordance  flex-container animation--enter-from-bottom animation--exit-to-left " ng-repeat="resource in formTopic.learn">
+					<span class="input-with-affordance__affordance delete" ng-click="formTopic.remove('learn', resource); setFormChanged();">&cross;</span>
+					<div class="input-with-affordance__input">
+						<input class="contenteditable" type="text" ng-model="resource.displayName" placeholder="Resource name" stop-event />
+						<input class="contenteditable" type="text" ng-model="resource.url" placeholder="Resource url" stop-event />
+					</div>
+				</li>
+				<li class="input-with-affordance flex-container">
+					<span class="input-with-affordance__affordance add" ng-click="saveNewLearnResource(newLearnResource); setFormChanged();">&plus; Add</span>
+					<div class="input-with-affordance__input">
+						<input class="input contenteditable" type="text" ng-model="newLearnResource.displayName" placeholder="Resource name" stop-event>
+						<input class="input contenteditable" type="text" ng-model="newLearnResource.url" placeholder="Resource url" ng-blur="saveNewLearnResource(newLearnResource); setFormChanged();" stop-event>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="row form-section">
+		<section class="small-12 medium-6 columns">
+                        <div class="five-section-heading">
+                                <h6 class="five-section-heading__heading">Relate</h6>
+                                <explanation-block class="" section="relate"></explanation-block>
+                        </div>
+			<ul class="relate-edit">
+				<li class="input-with-affordance flex-container aligned animation--enter-from-bottom animation--exit-to-left" ng-repeat="topic in formTopic.relate">
+					<span class="input-with-affordance__affordance delete" ng-click="formTopic.remove('relate', topic); setFormChanged()">&cross;</span>
+					<p class="input-with-affordance__input" ng-bind="topic.displayName"></p>
+				</li>
+				<li class="topic-form__add-topic">
+					<search-topic class="search-select" input-placeholder="Add topic from Crosslinks" preview="100" topics="topics" upon-select="addRelate(topic)"></search-topic>
+				</li>
+			</ul>
+		</section>
+
+		<section class="small-12 medium-6 columns">
+			<div class="five-section-heading">
+                                <h6 class="five-section-heading__heading">Advance</h6>
+                                <explanation-block class="" section="advance"></explanation-block>
+                        </div>
+			<ul class="relate-edit">
+				<li class="input-with-affordance flex-container aligned animation--enter-from-bottom animation--exit-to-left" ng-repeat="topic in formTopic.advance">
+					<span class="input-with-affordance__affordance delete" ng-click="formTopic.remove('advance', topic); setFormChanged()">&cross;</span>
+					<p class="input-with-affordance__input" ng-bind="topic.displayName"></p>
+				</li>
+				<li class="topic-form__add-topic">
+					<search-topic class="search-select" topics="topics" preview="100" input-placeholder="Add topic from Crosslinks" upon-select="addAdvance(topic)"></search-topic>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<section class="row form-section">
+		<div class="small-12 columns">
+			<div class="five-section-heading">
+                                <h6 class="five-section-heading__heading">Apply</h6>
+                                <explanation-block section="apply">Link to an interesting application of this topic in real-life</explanation-block>
+                        </div>
+			<ul class="apply-edit">
+				<li class="input-with-affordance flex-container animation--enter-from-bottom animation--exit-to-left" ng-repeat="resource in formTopic.apply">
+					<span class="input-with-affordance__affordance delete" ng-click="formTopic.remove('apply', resource); setFormChanged();">&cross;</span>
+					<div class="input-with-affordance__input">
+						<input class="contenteditable" type="text" ng-model="resource.displayName" placeholder="Resource name" stop-event>
+						<input class="contenteditable" type="text" ng-model="resource.url" placeholder="Resource url" stop-event>
+					</div>
+				</li>
+				<li class="input-with-affordance flex-container">
+					<span class="input-with-affordance__affordance add" ng-click="saveNewApplyResource(newApplyResource); setFormChanged();">&plus; Add</span>
+					<div class="input-with-affordance__input">
+						<input class="input contenteditable" type="text" ng-model="newApplyResource.displayName" placeholder="Resource name" stop-event>
+						<input class="input contenteditable" type="text" ng-model="newApplyResource.url" placeholder="Resource url" ng-blur="saveNewApplyResource(newApplyResource); setFormChanged();" stop-event>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="row add-row" ng-show="!showDeleteConfirmation">
+		<div class="medium-4 medium-push-8 columns">
+			<button class="button button--default " feedback-button
+			default-when="getFormDirty()" progress-when="inProgress" success-when="submitSuccess" error-when="submitError"
+			default-label="Save" initial-label="No changes to save" progress-label="Saving..." success-label="Saved!" error-label="Error. Not saved." 
+			ng-disabled="!getFormDirty() || submitSuccess || submitError || inProgress"
+			 type="button" ng-click="saveTopic(formTopic)">
+			</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 medium-4 large-4 medium-push-8 columns" ng-show="!showDeleteConfirmation">
+			<button type="button" class="button button--warning" ng-click="showDeleteConfirmation = true;">Delete Topic</button> 
+		</div>
+		<div ng-show="showDeleteConfirmation">
+			<p class="warning columns text-right"> Are you sure? This can't be undone!</p>
+			<div class="small-12 medium-4 medium-push-4 columns">
+
+				<button class="button button--warning right" feedback-button
+				default-when="!deleteProgress" success-when="deleteSuccess" error-when="submitError"  progress-when="deleteProgress"
+				default-label="Yes, delete forever" progress-label="Deleting..." success-label="Deleted!" error-label="Error. Not deleted." 
+				ng-disabled="deleteProgress || submitError"
+				 type="button" ng-click="deleteTopic(formTopic)">Yes, delete forever.</button>
+			</div>
+			<div class="small-12 medium-4 columns">
+				<button type="button" class="button button--default " ng-click="showDeleteConfirmation = false;">Cancel</button>
+			</div>
+		</div>
+	</div>
+
+</form>

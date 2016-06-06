@@ -1,0 +1,54 @@
+@import '../../../common/styles/variables.scss';
+
+// search-topic
+.search-topic-wrapper {
+	position: relative;
+	width: 100%;
+}
+
+.search-topic__input {
+	background-image: url('https://res.cloudinary.com/crosslinks/image/upload/search--dark.png');
+	background-position: 0 50%;
+	padding-left: 2em;
+	background-size: 1em;
+	background-repeat: no-repeat;
+}
+
+.search-topic__dropdown {
+	position: absolute;
+        border: 1px solid #cacbcc;
+        box-shadow: 0px 1px 1px rgba(#cacacb, .8);
+	list-style: none;
+	padding-left: 0;
+	width: 100%;
+	z-index: 4;
+	
+	@media all and (min-width: $breakpoint--medium) {
+		min-width: 48em;
+	}
+}
+
+.search-topic__dropdown-item {
+	cursor: pointer;
+	width: 100%;
+	padding-top: .75em;
+	padding-bottom: .75em;
+	background: $background-primary;
+	z-index: 1;
+}
+
+.search-topic__dropdown-item:hover,  .search-topic__dropdown-item.js-on-hover {
+	background-color: $background-secondary;
+}
+
+.search-topic__dropdown-item__title {
+	color: $mit-red;
+	height: 100%;
+	margin-bottom: 0;
+}
+
+.search-topic__dropdown-item__description {
+	height: 100%;
+	margin-bottom: 0;
+}
+
