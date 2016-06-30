@@ -20,14 +20,14 @@ This repo is for anyone who wants to host their own Crosslinks. You'll need your
 
 ## Getting Started
 
-If you want to host your own version of Crosslinks, the first thing to do is to download this repo so you can make modifications to it.
+If you want to host your own version of Crosslinks, the first thing to do is to download this repo so you can make modifications to it. Your machine needs to be running node [v0.10](https://nodejs.org/en/) or higher and [npm](https://npmjs.org/) in order to serve and develop the code. 
 
 First step is to download this repository onto your development machine:
 ```
-git clone https://github.com/wombats-writing-code/crosslinks.git
+git clone https://github.com/wombats-writing-code/crosslinks-js.git
 ```
 
-`cd` into the newly-cloned directory. The, to install all required dependencies:
+`cd` into the newly-cloned directory. Then, to install all required dependencies:
 ```
 npm install
 ```
