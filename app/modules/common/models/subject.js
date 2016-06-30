@@ -11,9 +11,9 @@ module.exports = function SubjectFactory() {
 		if (data) {
 			this.id = data.id;
 			this.associatedId = data.associatedId;
-			this.number = data.value || data.number; 
+			this.number = data.value || data.number;
 			this.name = (data.displayName && data.displayName.text) || data.name;
-		} else { 
+		} else {
 			this.name = 'No subject name ';
 			this.number = 'No subject number';
 			this.course = null;

@@ -1,15 +1,15 @@
 
 
-![Crosslinks](crosslinks.png)
+![Crosslinks](docs/crosslinks.png)
 
-Crosslinks
+Crosslinks.js
 ===
 
 Crosslinks ([crosslinks.mit.edu](http://crosslinks.mit.edu)) is a web application that contains a compendium of topics, resources tagged with topics, and links across topics.
 
-This repository is the front-end: it contains the code for what you see on the site and lets you host your own version of Crosslinks.
+This repository, Crosslinks.js, is the front-end: it contains the code for what you see on the site and lets you host your own version of Crosslinks.
 
-Crosslinks is open-source: you are free to use, modify and reuse any part of it. We ask only that you attribute and cite MIT Crosslinks:
+Crosslinks is open-source: you are free to use, modify and reuse any part of it. If you do, please attribute and cite MIT Crosslinks:
 
 **Miller, H.R, Willcox, K.E., Huang, L. "Crosslinks: Improving course connectivity using online open educational resources," in The Bridge, National Academy of Engineering, to appear 2016.**
 
@@ -20,23 +20,36 @@ This repo is for anyone who wants to host their own Crosslinks. You'll need your
 
 ## Getting Started
 
-If you want to host your own version of Crosslinks, the first thing to do is to download this repo so you can make modifications to it:
+If you want to host your own version of Crosslinks, the first thing to do is to download this repo so you can make modifications to it.
 
-To install all required dependencies:
+First step is to download this repository onto your development machine:
+```
+git clone https://github.com/wombats-writing-code/crosslinks.git
+```
+
+`cd` into the newly-cloned directory. The, to install all required dependencies:
 ```
 npm install
 ```
 
-Then, we'll tell gulp to watch our files so that everything automatically compiles and updates whenever we change a source file:
+We use the [Gulp](gulpjs.com) task runner to watch for changes in the `app/` directory and compile our files into the `dist/` folder. This job takes ~3 seconds and compiles SASS into normal CSS, and bundles our HTML and Javascript files into one big bundle, `bundle.js`. The bundling is actually managed by the [Webpack library](https://webpack.github.io/
+), but in our `gulfile.js`, we tell Gulp to run Webpack.
+
+
+We start the Gulp task runner by doing:
 ```
 gulp watch
 ```
 
-When you run `gulp watch`, your browser should fire up a window (http://localhost:9000) in which the Crosslinks code is being served locally. Whenever you make changes to any html or javascript files under `app/`, gulp will detect it and rebuild the code and serves it. Due to some quirks, you have to refresh the page again to see your latest changes.
+Your browser should fire up a window (http://localhost:9000) in which the Crosslinks code is being served locally. If you go to `http:localhost:9000` in your browser, you should see this:
 
-Crosslinks is a Single Page App (SPA) that uses the AngularJs (v1) framework and is organized into modules using the CommonJs module specification. We use webpack to build and bundle our app.
+![Crosslinks](docs/crosslinks-on-start-development.png)
 
-If any of the above was confusing, here is some required reading:
+What you are seeing here is the `dist/bundle.js` file that is getting served on your local server. You are seeing content here -- that visualization map, the Recently Edited Topics -- because Crosslinks.js has code that talks to our test database at MIT. *You need to change this code if you want Crosslinks to talk to your own database.* See the sections below on what you need to change.
+
+Now, whenever you make changes to any HTML or Javascript files under `app/`, gulp will detect it and rebuild the code and serves it. Due to some quirks, *you have to refresh the page twice to see your latest changes*. Try it. Change the `app/modules/main/main.html` file -- your page should refresh, but remember to refresh it again!
+
+If any of the above was confusing, here is some recommended reading:
 
 * [A helpful overview of SPAs](http://www.seguetech.com/blog/2013/04/18/what-is-single-page-application)
 * [Modularity in Javascript](http://eloquentjavascript.net/10_modules.html)
@@ -47,17 +60,16 @@ If any of the above was confusing, here is some required reading:
 
 ## Code organization
 
-The Crosslinks application is front-end only, which means you'll need to set up your own server-side solution for managing permissions.
+Crosslinks is a Single Page App (SPA) that uses the [AngularJs *v1*](https://angularjs.org/) framework and is organized into modules using the CommonJs module specification. The Crosslinks application is front-end only, which means you'll need to set up your own server-side solution if you want to edit and put "real" authentication on it.
 
-For example, at MIT, Crosslinks is world-readable - anyone in the world can read and access content. But, only MIT-authenticated users can edit. We do this by setting up an http version and an https version. The front-end shows the editing pages only when there is an MIT username present on the client. We then really secure this by having our API accept only requests with valid MIT kerberoses.
+For example, at MIT, Crosslinks is world-readable - anyone in the world can read and access content. But, only MIT-authenticated users can edit. We do this by setting up an http version and an https version. The front-end shows the editing pages only when there is an MIT username present on the client. We then really secure this by having our API accept only requests with valid MIT logins.
 
-All app stuff  is found in `app/`.
+All app stuff is found in `app/`.
 
 From here on, we assume you're in the `app/` directory. Most likely you're interested in the actual Javascript logic, found in `modules/`. The entry file to the module loader is `index.js` and contains all routes (aka "pages") and their loading logic.
 
 Modules are pretty much as described; there exists one folder for each route, and there's a `modules/common/` folder that houses all the common stuff shared throughout the app. For example, that visualization that is currently on the main page? -- that code resides in `modules/common/components/visualization`.
 
-Whenever you make a change, the gulp setup will automatically remake all the files and put them into `dist/`. Those are the files that get served.
 
 ## Data Modeling
 
@@ -70,7 +82,7 @@ The core unit of Crosslinks is a `Topic`. The factory function and prototype def
 * an array of `apply`  (links to resources that apply the current Topic)
 * an array of `advance`  (Topics that follow on after the current one)
 
-## How to deploy your own Crosslinks
+## Overview of the code you need to change
 
 The section on Data Modeling above is required reading. This list is a bit lengthy, but fortunately, most of these modifications have to do with your server endpoints. Files you'll need to modify:
 
@@ -80,6 +92,17 @@ The section on Data Modeling above is required reading. This list is a bit lengt
 * app/modules/handcar/[everything] -- Provides functions to call against handcar, our server-side logic. You'll need to rewrite these functions to fit your API endpoints.
 * app/modules/common/models/[everything] -- Provides factories and prototypes for models.
 * app/modules/interceptors/[everything] -- This is some complicated logic to handle adapting requests and responses -- we need this because of the split authentication scheme we use at MIT Crosslinks. You might not.
+
+### How to put in your own subjects
+The file responsible for talking to the server where your subjects live:
+```
+app/modules/common/models/topic-repository/subject-repository.js
+```
+
+This file creates a `Subject` class instance from your data. Every Subject must have a `name` and a `number`:
+```
+app/modules/common/models/subject.js
+```
 
 
 ## Optional Tutorial 1: Display hello world dynamically on the front page!

@@ -51,7 +51,7 @@ webpackJsonp([6],{
 /***/ 201:
 /***/ function(module, exports) {
 
-	module.exports = "<section class=\"team\">\n\t<h4 class=\"heading--bordered\">Team</h4>\n\n\t<section class=\"core-team clearfix\">\n\t\t<div class=\"small-6 medium-4 large-3 columns\">\n\t\t\t<img class=\"team-member__picture\" src=\"xxxHTMLLINKxxx0.178306819458956320.8109111909704485xxx\">\n\t\t\t<p class=\"team-member__title\">Crosslinks Mascot</p>\n\t\t\t<p class=\"team-member__description\">Your team member here</p>\n\t\t</div>\n\t</section>\n\n</section>\n";
+	module.exports = "<section class=\"team\">\n\t<h4 class=\"heading--bordered\">Team</h4>\n\n\t<section class=\"core-team clearfix\">\n\t\t<div class=\"small-6 medium-4 large-3 columns\">\n\t\t\t<img class=\"team-member__picture\" src=\"xxxHTMLLINKxxx0.075373129716200140.08209951100666646xxx\">\n\t\t\t<p class=\"team-member__title\">Crosslinks Mascot</p>\n\t\t\t<p class=\"team-member__description\">Your team member here</p>\n\t\t</div>\n\t</section>\n\n</section>\n";
 
 /***/ }
 
