@@ -20,7 +20,7 @@ This repo is for anyone who wants to host their own Crosslinks. You'll need your
 
 ## Getting Started
 
-If you want to host your own version of Crosslinks, the first thing to do is to download this repo so you can make modifications to it. Your machine needs to be running node [v0.10](https://nodejs.org/en/) or higher and [npm](https://npmjs.org/) in order to serve and develop the code. 
+If you want to host your own version of Crosslinks, the first thing to do is to download this repo so you can make modifications to it. Your machine needs to be running node [v0.10](https://nodejs.org/en/) or higher and [npm](https://npmjs.org/) in order to serve and develop the code.
 
 First step is to download this repository onto your development machine:
 ```
@@ -107,6 +107,14 @@ This file creates a `Subject` class instance from your data. **Every Subject mus
 ```
 app/modules/common/models/subject.js
 ```
+
+### What to do if you don't want to manage your own database
+You can email us, the authors of this codebase, [Karen E. Willcox](http://kiwi.mit.edu) and Luwen Huang at [kwillcox.mit.edu].
+We'll put you in touch with our friends at MIT SEI, who managed our database and backend for us. They're really nice and might help you out.
+
+## Help
+For bugs and feature requests, please file an Issue on Github.
+
 
 ## Links
 * [MIT Crosslinks website] (http://crosslinks.mit.edu)
