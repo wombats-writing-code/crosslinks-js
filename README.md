@@ -109,7 +109,7 @@ app/modules/common/models/subject.js
 ```
 
 ### What to do if you don't want to manage your own backend and/or database
-You can email us, the authors of this codebase, [Karen E. Willcox](http://kiwi.mit.edu) and Luwen Huang at [kwillcox@mit.edu].
+You can email us, [Karen E. Willcox](http://kiwi.mit.edu) and Luwen Huang at [kwillcox@mit.edu].
 We'll put you in touch with our friends at [MIT SEI](https://odl.mit.edu/about/our-team/Strategic-Education-Initiatives), who managed our database and backend for us. They're really nice and might help you out.
 
 ## Help
