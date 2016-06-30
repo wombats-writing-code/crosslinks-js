@@ -41,13 +41,13 @@ We start the Gulp task runner by doing:
 gulp watch
 ```
 
-Your browser should fire up a window (http://localhost:9000) in which the Crosslinks code is being served locally. If you go to `http:localhost:9000` in your browser, you should see this:
+Your browser should fire up a window in which the Crosslinks code is being served locally. If you go to `http:localhost:9000` in your browser, you should see this:
 
-![Crosslinks](docs/crosslinks-on-start-development.png)
+![Crosslinks](docs/crosslinks-dev-start.png)
 
-What you are seeing here is the `dist/bundle.js` file that is getting served on your local server. You are seeing content here -- that visualization map, the Recently Edited Topics -- because Crosslinks.js has code that talks to our test database at MIT. *You need to change this code if you want Crosslinks to talk to your own database.* See the sections below on what you need to change.
+What you are seeing here is the `dist/bundle.js` file that is getting served on your local server. You are seeing content here -- that visualization map, the Recently Edited Topics -- because Crosslinks.js has code that talks to our test database at MIT. **You need to change this code if you want Crosslinks to talk to your own database.** See the sections below on what you need to change.
 
-Now, whenever you make changes to any HTML or Javascript files under `app/`, gulp will detect it and rebuild the code and serves it. Due to some quirks, *you have to refresh the page twice to see your latest changes*. Try it. Change the `app/modules/main/main.html` file -- your page should refresh, but remember to refresh it again!
+Now, whenever you make changes to any HTML or Javascript files under `app/`, gulp will detect it and rebuild the code and serves it. Due to some quirks, **you have to refresh the page twice to see your latest changes**. Try it. Change the `app/modules/main/main.html` file -- your page should refresh, but remember to refresh it again!
 
 If any of the above was confusing, here is some recommended reading:
 
@@ -94,31 +94,19 @@ The section on Data Modeling above is required reading. This list is a bit lengt
 * app/modules/interceptors/[everything] -- This is some complicated logic to handle adapting requests and responses -- we need this because of the split authentication scheme we use at MIT Crosslinks. You might not.
 
 ### How to put in your own subjects
+We highly recommend that you start here -- try to change where the subjects come from first, before changing anything else.
+
 The file responsible for talking to the server where your subjects live:
 ```
 app/modules/common/models/topic-repository/subject-repository.js
 ```
 
-This file creates a `Subject` class instance from your data. Every Subject must have a `name` and a `number`:
+Try to substitute in your own server now. Does it work?
+
+This file creates a `Subject` class instance from your data. **Every Subject must have a `name` and a `number`**:
 ```
 app/modules/common/models/subject.js
 ```
-
-
-## Optional Tutorial 1: Display hello world dynamically on the front page!
-This tutorial is meant to get you familiarized with AngularJS and comfortable working with the build system.
-
-Let's add a block of bright blue that proudly displays 'hello world'!
-
-We assume you're already running `gulp watch`:
-
-1. Find the folder where the main page resides (`modules/main`)
-1. Edit the main.html file to add the block
-1. Edit the main.scss file to change the block's color
-1. Edit the main.controller.js to add the logic that injects in the 'hello world' value
-
-Note: simply putting in the block with the 'hello world' text defeats the point of this exercise. We want to learn about the controller and idea of injecting in data.
-Another note: remember to hit refresh again after the page rebuilds-reloads.
 
 ## Links
 * [MIT Crosslinks website] (http://crosslinks.mit.edu)
